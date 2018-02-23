@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+    {% block title %}
+    Welcome - HomePage
+    {% endblock %}
+    
+{% block head%} {% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="main">
+<br>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {%for breadcrumb in breadcrumbs %}
+      {% if breadcrumb.link %}
+        <li class="breadcrumb-item"><a href="{{ breadcrumb.link }}">{{ breadcrumb.title|capitalize }}</a></li>  
+      {% else %}
+        <li class="breadcrumb-item  {{ active }}">{{ breadcrumb.title|capitalize }}</li>  
+      {% endif %}
+    {% endfor %}
+    {# <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ titles.title }}</li> #}
+  </ol>
+</nav>
+{# 
+<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group" role="group" aria-label="First group">
+    <button type="button" class="btn btn-secondary">1</button>
+    <button type="button" class="btn btn-secondary">2</button>
+    <button type="button" class="btn btn-secondary">3</button>
+    <button type="button" class="btn btn-secondary">4</button>
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text" id="btnGroupAddon2">@</div>
+    </div>
+    <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+  </div>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Buscar Cliente
+</button>
+    <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Opciones
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Agregar Cliente</a>
+        <a class="dropdown-item" href="#">Exportar a .xls</a>
+        <a class="dropdown-item" href="#">Exportar a .pdf</a>
+        <a class="dropdown-item" href="#">Imprimir</a>
+    </div>
+    </div>
+</div> #}
+
+<form >
+{% if mode == "view" %}
+  {% if not customer %}
+    No se encontro Registro
+  {% endif %}
+{% endif %}
+<div class="form-group">
+    <label for="nombre">Nombre </label>
+    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.nombre }}">
+  </div>
+  <div class="form-group">
+    <label for="nombre">Apellido P</label>
+    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.apellidop }}">
+  </div>
+  <div class="form-group">
+    <label for="nombre">Apellido M</label>
+    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.apellidom }}">
+  </div>
+<button type="submit" class="btn btn-primary mb-2">Grabar</button>
+</form>
+
+    
+    
+
+
+ {% endblock %}
+

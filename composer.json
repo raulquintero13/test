@@ -1,0 +1,30 @@
+{
+    "name": "test/console",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Raul Quintero",
+            "email": "raul.quintero@live.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\Core\\": "app/core/",
+            "App\\Controllers\\": "app/controllers/",
+            "App\\Models\\": "app/models/",
+            "App\\Pages\\": "app/pages/",
+            "phpUnit\\": "phpUnit/"
+                    
+        }
+    },
+
+    "require": {
+        "slim/slim": "^3.9",
+        "slim/twig-view": "^2.3"       
+    },
+    "require-dev": {
+        "slim/slim": "^3.9",
+        "slim/twig-view": "^2.3",
+        "phpunit/phpunit": "3.7.14"
+    }
+}

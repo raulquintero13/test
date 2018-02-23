@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+    {% block title %}
+    Welcome - HomePage
+    {% endblock %}
+    
+{% block head%} {% endblock %}
+
+
+
+{% block content %}
+
+<div class="main">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path_for('index') }}">Home</a></li>
+  </ol>
+</nav>
+
+<table border=1>
+<tr><th>Name</th><th>Last Name</th><th>SurName</th></tr>
+{% for customer in customers %}
+<tr><td>{{ customer.nombre }}</td><td>{{ customer.apellidop }}</td><td>{{ customer.apellidom         }}</td></tr>
+{% endfor %}
+</table>
+
+
+
+</div>
+ {% endblock %}
+
