@@ -65,7 +65,7 @@ class SimplePDO {
         'user' => '', 
         'password' => '', 
         'database' => '', 
-        'results' => 'object', // object | NULL 
+        'results' => 'object-no', // object | NULL 
         'charset' => 'utf8'
     );
     

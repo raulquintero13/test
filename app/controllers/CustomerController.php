@@ -48,7 +48,8 @@ class CustomerController
         
          header('Content-Type: application/json');
 
-        $response = json_encode(array('aaData'=> $customers));
+        // $response = json_encode(array('aaData'=> $customers));
+        $response = json_encode($customers);
     
         echo $response;die;
         

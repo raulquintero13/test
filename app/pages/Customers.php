@@ -4,8 +4,8 @@ namespace App\Pages;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use App\Core\DbConfig;
-use App\Models\Customer;
+//use App\Core\DbConfig;
+//use App\Models\Customer;
 
 class Customers extends BasePageController
 {
@@ -19,8 +19,8 @@ class Customers extends BasePageController
         self::$args = $args;
 
           
-        $customer = new Customer(DbConfig::$default);
-        $customers = $customer->getCustomers();
+        //$customer = new Customer(DbConfig::$default);
+        //$customers = $customer->getCustomers();
         $titles = [
             "title" => "Clientes",  
             "names" => "Nombres",
@@ -28,7 +28,8 @@ class Customers extends BasePageController
             "surname"=>"Apellido Materno",
         ];
         
-        
+        $customers = self::getDataFromApi("/customers");
+                
         return self::render(self::$template, [
             'customers' => $customers,
             'titles' => $titles,
@@ -36,9 +37,7 @@ class Customers extends BasePageController
 
         ]);
 
-        //        return $container->view->render($response, 'index.twig', [
-        //            'name' => $args['name']
-        //       ]);
+       
     }
 
 }
