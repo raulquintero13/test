@@ -2,6 +2,12 @@
 
 $app->get('/api/customers', function ($request, $response, $args) { 
     // echo "inicio";
-    return App\Controllers\CustomersController::handler($request, $response, $args); 
+    return App\Controllers\CustomerController::getCustomers($request, $response, $args); 
 
-})->setName('customers');
+})->setName('/api/customers');
+
+$app->get('/api/customer/{cid:[0-9]+}', function ($request, $response, $args) { 
+    //  echo "inicio";
+    return App\Controllers\CustomerController::getCustomer($request, $response, $args); 
+
+})->setName('/api/customer');

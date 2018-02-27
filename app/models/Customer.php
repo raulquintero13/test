@@ -16,21 +16,25 @@ class Customer {
         }
     }
 
-    public function getCustomer($id){
+    public function getCustomer(int $id)  {
         $allCustomers = $this->database->get_row( 
-            "SELECT * FROM person left join cliente ON person.id=cliente.person_id where cliente.id=?", array($id)  );
-        if (isset($allCustomers))
+            "SELECT * FROM person left join cliente ON person.id=cliente.person_id where person.id=?", array($id)  );
+        if (isset($allCustomers)){
+
+            // var_dump($allCustomers);die;
             return $allCustomers;
+            }
+            
             else {
                 return NULL;
             }
     }
     
     
-    public function getCustomers(){
+    public function getCustomers():array{
 
         // var_dump($this->database);
-        $allCustomers = $this->database->get_results( "SELECT * FROM person left join cliente ON person.id=cliente.person_id "  );
+        $allCustomers = $this->database->get_results( "SELECT * FROM person inner join cliente ON person.id=cliente.person_id "  );
         return $allCustomers;
 
     }

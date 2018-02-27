@@ -74,16 +74,24 @@
 </div> #}
 
     <table class="table display-search table-hover table-nomargin table-bordered dataTable dataTable-column_filter" data-column_filter_types="null,select">
-    <thead>
-        <tr><th>{{ titles.lastname }} </th><th>{{ titles.surname }}</th><th>{{titles.names }}</th></tr>
-    </thead>
-    <tbody>
-        {% for customer in customers %}
-                <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidop }}</a></td>
-                <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidom }}</a></td>
-                <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.nombre }}</a></td></tr>
-        {% endfor %}
+        <thead>
+            <tr><th>{{ titles.lastname }} </th><th>{{ titles.surname }}</th><th>{{titles.names }}</th></tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                    <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidop }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidom }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.nombre }}</a></td></tr>
+            {% endfor %}
         </tbody>
+        <tfoot>
+            <tr>
+                <th>{{ titles.lastname }}
+                </th>
+                <th>{{ titles.surname }}</th>
+                <th>{{titles.names }}</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 
