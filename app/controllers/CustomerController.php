@@ -28,7 +28,7 @@ class CustomerController
         
          header('Content-Type: application/json');
 
-        $response = json_encode(array('aaData'=> $customer));
+        $response = json_encode($customer);
     
         echo $response;die;
         
