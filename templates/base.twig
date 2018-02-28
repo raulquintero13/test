@@ -176,6 +176,13 @@
 </nav>
 
 
+
+
+
+<ul class="main-menu">
+    {% include "./menu-links.twig" with {'links':links} only %}
+</ul>
+
 {% block content %}{% endblock %}
 
 

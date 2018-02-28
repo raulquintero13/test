@@ -6,7 +6,7 @@ class DbConfig {
     public static $default = array(
     'host'			=> 'localhost',
     'user'			=> 'root',
-    'password'		=> 'root',
+    'password'		=> '1234',
     'database'		=> 'pos',
 
     );

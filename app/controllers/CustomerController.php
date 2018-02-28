@@ -54,4 +54,26 @@ class CustomerController
         echo $response;die;
         
     }
+    public static function getMenu(Request $request, Response $response, $args)
+    {
+        
+        // self::$container = $container;
+        self::$request = $request;
+        self::$response = $response;
+        self::$args = $args;
+
+
+        
+        $menu = new Customer(DbConfig::$default);
+        $menu = $menu->getMenu(1);
+
+
+        header('Content-Type: application/json');
+
+        $response = json_encode($menu);
+
+        echo $response;
+        die;
+
+    }
 }

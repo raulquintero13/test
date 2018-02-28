@@ -1,0 +1,11 @@
+<!--includes/menu-links.html-->
+{% for menu in menus %}
+    <li>
+        <a href="{{ menu.path_option }}">{{ menu }}</a>
+        {% if menu.sub %}
+            <ul>
+                {% include "includes/menu-links.html" with {'links': menu.sub} %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}

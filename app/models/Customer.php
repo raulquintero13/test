@@ -31,12 +31,13 @@ class Customer {
     }
     
     
-    public function getCustomers():array{
+    public function getCustomers(){
 
         // var_dump($this->database);
         $allCustomers = $this->database->get_results( "SELECT * FROM person inner join cliente ON person.id=cliente.person_id "  );
         return $allCustomers;
 
     }
+
 
 }
