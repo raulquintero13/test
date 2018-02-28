@@ -37,5 +37,26 @@ class MenuController
 
     }
 
+    public static function getStatus(Request $request, Response $response, $args)
+    {
+        
+        // self::$container = $container;
+        self::$request = $request;
+        self::$response = $response;
+        self::$args = $args;
+
+        $menu = new Menu(DbConfig::$default);
+        $status = TRUE;
+
+
+        header('Content-Type: application/json');
+
+        $response = json_encode($status);
+
+        echo $response;
+        die;
+
+    }
+
     
 }

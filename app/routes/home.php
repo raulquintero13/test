@@ -24,3 +24,4 @@ $app->get('/customer/{id:[0-9]+}', function ($request, $response, $args) { //  *
     return App\Pages\CustomerPage::handler($this, $request, $response, $args); 
     
 })->setName('customer');
+

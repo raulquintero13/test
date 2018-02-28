@@ -17,3 +17,9 @@ $app->get('/api/menu', function ($request, $response, $args) {
     return App\Controllers\MenuController::getMenu($request, $response, $args);
 
 })->setName('/api/customer');
+
+$app->get('/api/status', function ($request, $response, $args) { //  ********************** como cachar este error????    
+    // echo "inicio";
+    return App\Controllers\MenuController::getStatus($request, $response, $args);
+
+})->setName('customer');
