@@ -20,8 +20,8 @@ class BasePageController
 
         $url = 'http://test.dev/api'.$url; // path to your JSON file
         $data = file_get_contents($url); // put the contents of the file into a variable
-        $data = json_decode(serialize($data));
-
+        $data = json_decode($data);
+        // var_dump($data);die;
         return $data;
     }
 }

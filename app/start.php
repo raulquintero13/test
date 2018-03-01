@@ -4,12 +4,14 @@
 ini_set('display_errors',1);
 
 // Create app
-$app = new Slim\App();
+// $app = new Slim\App();
 
 
 
 // Get container
-$container = $app->getContainer();
+//$container = $app->getContainer();
+
+$container = new \Slim\Container;
 
 // Register component on container
 $container['view'] = function ($container) {
@@ -25,6 +27,20 @@ $container['view'] = function ($container) {
 
     return $view;
 };
+
+//Override the default Not Found Handler
+$container['notFoundHandler'] = function ($c) {
+    return function ($request, $response) use ($c) {
+        return $c['view']->render($response->withStatus(404), '404.twig', [
+            "myMagic" => "Let's roll"
+        ]);
+    };
+};
+
+
+$app = new Slim\App($container);
+
+
 
 require ROOT_DIR."/app/routes.php";
 

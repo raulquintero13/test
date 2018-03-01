@@ -29,7 +29,7 @@ class Customers extends BasePageController
         ];
         
         $customers = self::getDataFromApi("/customers");
-                
+        // var_dump($customers);die;
         return self::render(self::$template, [
             'customers' => $customers,
             'titles' => $titles,
