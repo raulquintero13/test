@@ -18,7 +18,9 @@ $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig(ROOT_DIR.'/templates', [
         'cache' => FALSE,
         'debug' => TRUE
-    ]);
+        ]);
+   
+
    
     $view->addExtension(new Twig_Extension_Debug());
     // Instantiate and add Slim specific extension
