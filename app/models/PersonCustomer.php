@@ -17,7 +17,7 @@ class PersonCustomer extends Person {
 
     public function findBy(int $id)  {
         $customer = $this->database->get_row( 
-            "SELECT * FROM person left join cliente ON person.id=customer.person_id where person.id=?", array($id)  );
+            "SELECT * FROM person left join customer ON person.id=customer.person_id where person.id=?", array($id)  );
 
         if (isset($customer)){
             $this->setId($customer['id']);
