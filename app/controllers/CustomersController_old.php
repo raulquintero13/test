@@ -20,18 +20,14 @@ class CustomersController
         self::$request = $request;
         self::$response = $response;
         self::$args = $args;
-
           
-        $customer = new Customer(DbConfig::$default);
-        $customers = $customer->getCustomers();
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $Customer = new Usuario($personCustomer);
+        $customers = $Customer->getAll();
         
-        
-         header('Content-Type: application/json');
-
+        header('Content-Type: application/json');
         $response = json_encode(array('aaData'=> $customers));
-    
-        echo $response;die;
-        
+        $die;        
     }
 
 }

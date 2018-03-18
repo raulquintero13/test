@@ -2,7 +2,7 @@
 
 namespace App\Core;
 use \PDO as PDO;
-// use \Exception;
+use \PDOException;
 /*------------------------------------------------------------------------------
 ** File:        SimplePDO.php
 ** Class:       SimplePDO
@@ -72,6 +72,7 @@ class SimplePDO {
     
     public function __construct( $params = array() )
     {
+        
         //Prepare settings parameters
         $this->set_options( $params );
         
@@ -84,8 +85,13 @@ class SimplePDO {
         );
         $dsn = 'mysql:dbname='.$this->settings['database'].';host='.$this->settings['host'].';charset='.$this->settings['charset'];
 
-        $this->pdo = new PDO( $dsn, $this->settings["user"], $this->settings["password"], $options );
-        $this->link = true;
+         try {
+            $this->pdo = new PDO( $dsn, $this->settings["user"], $this->settings["password"], $options );
+            $this->link = true;
+        } catch( PDOException $e ) {
+            //Do whatever you'd like with the error here
+            echo  "SimplePDO::__construct - ". $e->getMessage(); die;
+        }
     }
     //end __construct()
     

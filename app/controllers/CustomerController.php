@@ -5,7 +5,8 @@ namespace App\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use App\Core\DbConfig;
-use App\Models\Customer;
+use App\Models\PersonCustomer;
+use App\Models\Usuario;
 
 class CustomerController
 {
@@ -21,16 +22,14 @@ class CustomerController
         self::$response = $response;
         self::$args = $args;
 
-          
-        $customer = new Customer(DbConfig::$default);
-        $customer = $customer->getCustomer($args['cid']);
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $customer = new Usuario($personCustomer);
+        $customer->findBy(self::$args['id']);
         
-        
-         header('Content-Type: application/json');
-
-        $response = json_encode($customer);
-    
-        echo $response;die;
+        header('Content-Type: application/json');
+        $response = json_encode($customer->toArray());
+        echo $response;
+        die;
         
     }
 
@@ -41,17 +40,14 @@ class CustomerController
         self::$response = $response;
         self::$args = $args;
 
-          
-        $customer = new Customer(DbConfig::$default);
-        $customers = $customer->getCustomers();
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $Customer = new Usuario($personCustomer);
+        $customers = $Customer->getAll();
         
-        
-         header('Content-Type: application/json');
-
-        // $response = json_encode(array('aaData'=> $customers));
+        header('Content-Type: application/json');
         $response = json_encode($customers);
-    
-        echo $response;die;
+        echo $response;
+        die;
         
     }
     public static function getMenu(Request $request, Response $response, $args)
@@ -61,17 +57,12 @@ class CustomerController
         self::$request = $request;
         self::$response = $response;
         self::$args = $args;
-
-
         
         $menu = new Customer(DbConfig::$default);
         $menu = $menu->getMenu(1);
 
-
         header('Content-Type: application/json');
-
         $response = json_encode($menu);
-
         echo $response;
         die;
 

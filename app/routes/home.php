@@ -8,7 +8,7 @@ $app->get('/', function ($request, $response, $args) {
 
 $app->get('/customers', function ($request, $response, $args) { 
     // echo "inicio";
-    return App\Pages\Customers::handler($this, $request, $response, $args); 
+    return App\Pages\CustomersPage::handler($this, $request, $response, $args); 
 
 })->setName('customers');
 
@@ -24,4 +24,12 @@ $app->get('/customer/{id:[0-9]+}', function ($request, $response, $args) { //  *
     return App\Pages\CustomerPage::handler($this, $request, $response, $args); 
     
 })->setName('customer');
+
+$app->post('/customer/save', function ($request, $response, $args) { //  ********************** como cachar este error????    
+    // var_dump($args);die;
+    //  echo "inicio";die;
+    return $response->withRedirect('/api/customer/save/'.$request->getParsedBody()['id']);
+    return App\Pages\CustomerPage::handler($this, $request, $response, $args); 
+    
+});
 

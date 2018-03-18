@@ -4,8 +4,9 @@ namespace App\Pages;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-// use App\Core\DbConfig;
-// use App\Models\Customer;
+use App\Core\DbConfig;
+use App\Models\PersonCustomer;
+use App\Models\Usuario;
 
 class CustomerPage extends BasePageController
 {
@@ -18,11 +19,11 @@ class CustomerPage extends BasePageController
         self::$response = $response;
         self::$args = $args;
 
-        // $customer = new Customer(DbConfig::$default);
-        // $customer = $customer->getCustomer(self::$args['id']);
-        // var_dump($customer);die;
-
-        $customer = self::getDataFromApi("/customer/".$args['id']);
+        //  var_dump(self::$request->getParsedBody()['id']);die; 
+       
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $customer = new Usuario($personCustomer);
+        $customer->findBy(self::$args['id']);
 
         $titles = [
             "title" => "Cliente",  
@@ -32,13 +33,11 @@ class CustomerPage extends BasePageController
         ];
         $breadcrumbs = [
             ['title' => 'home', 'link' => '/'],
-            [ 'title' => 'cliente', 'link' => '']
+            ['title' => 'cliente', 'link' => '']
         ];
         
-
-
         return self::render(self::$template, [
-            'customer' => $customer,
+            'customer' => $customer->toArray(),
             'breadcrumbs' => $breadcrumbs,
             'mode' => "view",
             'titles' => $titles,

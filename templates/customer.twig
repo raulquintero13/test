@@ -59,7 +59,8 @@
     </div>
 </div> #}
 
-<form >
+<form action="/customer/save" method="post" >
+    <input type="hidden" name="id" value="{{ customer.id }}">
 {% if mode == "view" %}
   {% if not customer %}
     No se encontro Registro
@@ -67,17 +68,29 @@
 {% endif %}
 <div class="form-group">
     <label for="nombre">Nombre </label>
-    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.nombre }}">
+    <input type="text" class="form-control" 
+        id="nombre" name="name" placeholder="name" value="{{ customer.name|capitalize }}">
   </div>
   <div class="form-group">
     <label for="nombre">Apellido P</label>
-    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.apellidop }}">
+    <input type="text" class="form-control" 
+        id="nombre" name="lastname" placeholder="name" value="{{ customer.lastname|capitalize }}">
   </div>
   <div class="form-group">
     <label for="nombre">Apellido M</label>
-    <input type="text" class="form-control" id="nombre" placeholder="name" value="{{ customer.apellidom }}">
+    <input type="text" class="form-control" 
+        id="nombre" name="surname" placeholder="name" value="{{ customer.surname|capitalize }}">
   </div>
-<button type="submit" class="btn btn-primary mb-2">Grabar</button>
+  <div class="form-group">
+    <label for="nombre">Fecha de Nacimiento</label>
+    <input type="text" class="form-control" 
+        id="birthdate" name="birthdate"  placeholder="dd/mm/yyyy" name="birthdate" value="{{ customer.birthdate }}">
+  </div>
+  <div class="group">
+    <p>Cliente desde: {{ customer.created_at }}</p>
+    <p>Modificado: {{ customer.updated_at }}</p>
+  </div>
+<button  type="submit" class="btn btn-primary mb-2 hidden-print">Grabar</button>
 </form>
 
     

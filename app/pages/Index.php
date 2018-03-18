@@ -5,7 +5,8 @@ namespace App\Pages;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use App\Core\DbConfig;
-use App\Models\Customer;
+use App\Models\PersonCustomer;
+use App\Models\Usuario;
 
 class Index extends BasePageController
 {
@@ -19,8 +20,12 @@ class Index extends BasePageController
         self::$args = $args;
 
           
-        $customer = new Customer(DbConfig::$default);
-         $customers = $customer->getCustomers();
+        // $customer = new Customer(DbConfig::$default);
+        //  $customers = $customer->getCustomers();
+
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $Customer = new PersonCustomer($personCustomer);
+        $customers = $Customer->getAll();
 
         return self::render(self::$template, [
             'customers' => $customers,

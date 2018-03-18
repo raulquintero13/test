@@ -80,9 +80,9 @@
         </thead>
         <tbody>
             {% for customer in customers %}
-                    <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidop }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.apellidom }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.nombre }}</a></td></tr>
+                    <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.lastname|capitalize }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.surname|capitalize }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.name|capitalize }}</a></td></tr>
             {% endfor %}
         </tbody>
         <tfoot>
