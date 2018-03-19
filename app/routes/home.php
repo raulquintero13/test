@@ -6,6 +6,15 @@ $app->get('/', function ($request, $response, $args) {
 
 })->setName('index');
 
+$app->get('/gitpull', function ($request, $response, $args) { 
+    // echo "inicio";
+    $salida = shell_exec('/home/karina/projects/test/git pull');
+    echo "<pre>$salida</pre>";
+    die;
+    // return App\Pages\Index::handler($this, $request, $response, $args);
+
+})->setName('index');
+
 $app->get('/customers', function ($request, $response, $args) { 
     // echo "inicio";
     return App\Pages\CustomersPage::handler($this, $request, $response, $args); 

@@ -17,7 +17,7 @@ $container = new \Slim\Container;
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig(ROOT_DIR.'/templates', [
         'cache' => FALSE,
-        'debug' => TRUE
+        'debug' => FALSE
         ]);
    
 
