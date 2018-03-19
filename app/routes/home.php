@@ -8,6 +8,7 @@ $app->get('/', function ($request, $response, $args) {
 
 $app->get('/gitpull', function ($request, $response, $args) { 
     // echo "inicio";
+    echo "git<br>\n";
     $salida = shell_exec('/home/karina/projects/test/git pull');
     echo "<pre>$salida</pre>";
     die;
