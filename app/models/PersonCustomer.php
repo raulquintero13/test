@@ -24,7 +24,7 @@ class PersonCustomer extends Person {
         $customer = $this->database->get_row(
             "SELECT * FROM person left join customer 
                                     ON person.id=customer.person_id 
-                                left JOIN genre ON genre.id = person.genero_id
+                                left JOIN genre ON genre.id = person.genre_id
                                 left JOIN rol ON customer.rol_id=rol.id where person.id=?", array($id)  );
 
             // var_dump($customer);die;
@@ -70,7 +70,6 @@ class PersonCustomer extends Person {
         $customer['birthdate'] = $this->getBirthdate();
         $customer['rol'] = $this->getRol();
         $customer['status'] = $this->getStatus();
-        $customer['birthdate'] = $this->getBirthdate();
         $customer['created_at'] = $this->getCreated_at();
         $customer['updated_at'] = $this->getUpdated_at();
         return $customer;
