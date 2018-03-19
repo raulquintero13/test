@@ -3,7 +3,7 @@ namespace App\Models;
 
 use App\Models\Person;
 use App\Config\DbConfig;
-use \App\Core\SimplePDO;
+use Core\SimplePDO;
 
 class PersonCustomer extends Person {
     private $database;
@@ -61,6 +61,7 @@ class PersonCustomer extends Person {
         $customer['id'] = $this->getId();
         $customer['genero'] = $this->getGenero();
         $customer['colonia_id'] = $this->getColonia_id();
+        $customer['name'] = $this->getName();
         $customer['lastname'] = $this->getLastname();
         $customer['surname'] = $this->getSurname();
         $customer['email'] = $this->getEmail();

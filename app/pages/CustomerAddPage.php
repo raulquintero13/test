@@ -4,7 +4,7 @@ namespace App\Pages;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use App\Core\DbConfig;
+use Core\DbConfig;
 use App\Models\Customer;
 
 class CustomerAddPage extends BasePageController

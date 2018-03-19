@@ -2,7 +2,7 @@
 namespace App\Models;
 use App\Models\Person;
 use App\Config\DbConfig;
-use \App\Core\SimplePDO;
+use Core\SimplePDO;
 
 class PersonEmployee extends Person {
    private $database;

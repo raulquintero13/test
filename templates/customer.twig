@@ -59,7 +59,7 @@
     </div>
 </div> #}
 
-<form action="/customer/save" method="post" >
+<form action="/api/customer/{{ customer.id }}/save" method="post" >
     <input type="hidden" name="id" value="{{ customer.id }}">
 {% if mode == "view" %}
   {% if not customer %}
@@ -74,12 +74,12 @@
   <div class="form-group">
     <label for="nombre">Apellido P</label>
     <input type="text" class="form-control" 
-        id="nombre" name="lastname" placeholder="name" value="{{ customer.lastname|capitalize }}">
+        id="nombre" name="lastname" placeholder="apellido paterno" value="{{ customer.lastname|capitalize }}">
   </div>
   <div class="form-group">
     <label for="nombre">Apellido M</label>
     <input type="text" class="form-control" 
-        id="nombre" name="surname" placeholder="name" value="{{ customer.surname|capitalize }}">
+        id="nombre" name="surname" placeholder="apellido materno" value="{{ customer.surname|capitalize }}">
   </div>
   <div class="form-group">
     <label for="nombre">Fecha de Nacimiento</label>

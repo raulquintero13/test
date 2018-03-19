@@ -44,7 +44,7 @@ $app = new Slim\App($container);
 
 
 
-require ROOT_DIR."/app/routes.php";
+require ROOT_DIR."/core/routes.php";
 
 // $app->get('/', function ($request, $response, $args) { 
 //     echo "hola";
