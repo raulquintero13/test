@@ -31,7 +31,7 @@ class PersonCustomer extends Person {
             
         if (isset($customer)){
             $this->setId($customer['id']);
-            $this->setGenero($customer['genero']);
+            $this->setGenre($customer['genre']);
             $this->setColonia_id($customer['colonia_id']);
             $this->setName($customer['name']);
             $this->setLastname($customer['lastname']);
@@ -59,7 +59,7 @@ class PersonCustomer extends Person {
 
     public function toArray(){
         $customer['id'] = $this->getId();
-        $customer['genero'] = $this->getGenero();
+        $customer['genre'] = $this->getGenre();
         $customer['colonia_id'] = $this->getColonia_id();
         $customer['name'] = $this->getName();
         $customer['lastname'] = $this->getLastname();

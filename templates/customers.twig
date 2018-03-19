@@ -79,14 +79,14 @@
 
     <table class="table display-search table-hover table-nomargin table-bordered dataTable dataTable-column_filter" data-column_filter_types="null,select">
         <thead>
-            <tr><th>{{ titles.lastname }} </th><th>{{ titles.surname }}</th><th>{{titles.names }}</th><th class = ".d-md-none .d-lg-block">{{titles.genero }}</th><th >{{titles.zipcode }}</th></tr>
+            <tr><th>{{ titles.lastname }} </th><th>{{ titles.surname }}</th><th>{{titles.names }}</th><th class = ".d-md-none .d-lg-block">{{titles.genre }}</th><th >{{titles.zipcode }}</th></tr>
         </thead>
         <tbody>
             {% for customer in customers %}
                     <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.lastname|capitalize }}</a></td>
                     <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.surname|capitalize }}</a></td>
                     <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.name|capitalize }}</a></td>
-                    <td class = ".d-md-none .d-lg-block"><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.genero|capitalize }}</a></td>
+                    <td class = ".d-md-none .d-lg-block"><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.genre|capitalize }}</a></td>
                     <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.zipcode }}</a></td>
                     </tr>
             {% endfor %}

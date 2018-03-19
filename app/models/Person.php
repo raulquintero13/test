@@ -5,7 +5,7 @@ namespace app\models;
 class Person {
 
     private $id;
-    private $genero;
+    private $genre;
     private $colonia_id;
     private $name;
     private $lastname;
@@ -121,26 +121,6 @@ class Person {
     }
 
     /**
-     * Get the value of genero
-     */ 
-    public function getGenero()
-    {
-        return $this->genero;
-    }
-
-    /**
-     * Set the value of genero
-     *
-     * @return  self
-     */ 
-    public function setGenero($genero)
-    {
-        $this->genero = $genero;
-
-        return $this;
-    }
-
-    /**
      * Get the value of colonia
      */ 
     public function getColonia_id()
@@ -216,6 +196,26 @@ class Person {
     public function setDomicilio($domicilio)
     {
         $this->domicilio = $domicilio;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of genre
+     */ 
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set the value of genre
+     *
+     * @return  self
+     */ 
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
 
         return $this;
     }

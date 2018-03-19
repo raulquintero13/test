@@ -29,7 +29,7 @@ class CustomersPage extends BasePageController
             "names" => "Nombres",
             "lastname" => "Apellido Paterno", 
             "surname"=>"Apellido Materno",
-            "genero"=>"Genero",
+            "genre"=>"Genero",
             "zipcode"=>"zipcode",
         ];
         
