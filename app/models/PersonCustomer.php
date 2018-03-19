@@ -10,7 +10,7 @@ class PersonCustomer extends Person {
     private $password;
     private $created_at;
     private $updated_at;
-    private $nivel;
+    private $rol;
     private $status;
         
     
@@ -21,11 +21,14 @@ class PersonCustomer extends Person {
     }
 
     public function findBy(int $id)  {
-        $customer = $this->database->get_row( 
+        $customer = $this->database->get_row(
             "SELECT * FROM person left join customer 
                                     ON person.id=customer.person_id 
-                                INNER JOIN genero ON genero.id = person.genero_id where person.id=?", array($id)  );
+                                INNER JOIN genero ON genero.id = person.genero_id
+                                INNER JOIN rol ON rol.id=customer.rol_id where person.id=?", array($id)  );
 
+            // var_dump($customer);die;
+            
         if (isset($customer)){
             $this->setId($customer['id']);
             $this->setGenero($customer['genero']);
@@ -38,7 +41,7 @@ class PersonCustomer extends Person {
             $this->setDomicilio($customer['domicilio']);
             $this->setBirthdate($customer['birthdate']);
             $this->setPassword('xxxxx-xxxxx');
-            $this->setNivel($customer['nivel']);
+            $this->setRol($customer['rol']);
             $this->setStatus($customer['status']);
             $this->setCreated_at($customer['created_at']);
             $this->setUpdated_at($customer['updated_at']);
@@ -46,7 +49,10 @@ class PersonCustomer extends Person {
     }
     
     public function getAll(){
-        $allCustomers = $this->database->get_results("SELECT * FROM person inner join customer ON person.id=customer.person_id INNER JOIN genero ON genero.id = person.genero_id  "  );
+        $allCustomers = $this->database->get_results("SELECT * FROM person 
+                                                        inner join customer ON person.id=customer.person_id 
+                                                        INNER JOIN genero ON genero.id = person.genero_id
+                                                        INNER JOIN rol ON rol.id=customer.rol_id  "  );
         // var_dump($allCustomers);die;
         return $allCustomers;
     }
@@ -61,7 +67,7 @@ class PersonCustomer extends Person {
         $customer['zipcode'] = $this->getZipcode();
         $customer['domicilio'] = $this->getDomicilio();
         $customer['birthdate'] = $this->getBirthdate();
-        $customer['nivel'] = $this->getNivel();
+        $customer['rol'] = $this->getRol();
         $customer['status'] = $this->getStatus();
         $customer['birthdate'] = $this->getBirthdate();
         $customer['created_at'] = $this->getCreated_at();
@@ -135,25 +141,7 @@ class PersonCustomer extends Person {
         return $this;
     }
 
-    /**
-     * Get the value of nivel
-     */ 
-    public function getNivel()
-    {
-        return $this->nivel;
-    }
 
-    /**
-     * Set the value of nivel
-     *
-     * @return  self
-     */ 
-    public function setNivel($nivel)
-    {
-        $this->nivel = $nivel;
-
-        return $this;
-    }
 
     /**
      * Get the value of status
@@ -171,6 +159,26 @@ class PersonCustomer extends Person {
     public function setStatus($status)
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of rol
+     */ 
+    public function getRol()
+    {
+        return $this->rol;
+    }
+
+    /**
+     * Set the value of rol
+     *
+     * @return  self
+     */ 
+    public function setRol($rol)
+    {
+        $this->rol = $rol;
 
         return $this;
     }
