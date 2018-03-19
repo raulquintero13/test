@@ -87,7 +87,7 @@
                     <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.surname|capitalize }}</a></td>
                     <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.name|capitalize }}</a></td>
                     <td class = ".d-md-none .d-lg-block"><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.genero|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.rol }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.zipcode }}</a></td>
                     </tr>
             {% endfor %}
         </tbody>

@@ -51,7 +51,7 @@ class PersonCustomer extends Person {
     public function getAll(){
         $allCustomers = $this->database->get_results("SELECT * FROM  person 
                                                         inner join customer ON person.id=customer.person_id 
-                                                        INNER JOIN genero ON genero.id = person.genero_id
+                                                        LEFT JOIN genero ON genero.id = person.genero_id
                                                         LEFT JOIN rol ON customer.rol_id=rol.id  "  );
         // var_dump($allCustomers);die;
         return $allCustomers;
