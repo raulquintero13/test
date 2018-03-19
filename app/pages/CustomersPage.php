@@ -22,12 +22,15 @@ class CustomersPage extends BasePageController
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $customer = new Usuario($personCustomer);
         $customers = $customer->getAll();
+
         
         $titles = [
             "title" => "Clientes",  
             "names" => "Nombres",
             "lastname" => "Apellido Paterno", 
             "surname"=>"Apellido Materno",
+            "genero"=>"Genero",
+            "zipcode"=>"zipcode",
         ];
         
         return self::render(self::$template, [
