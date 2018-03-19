@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 use App\Models\Person;
+use \DateTime;
 
 class Usuario {
     public $person;
@@ -23,6 +24,15 @@ class Usuario {
 
     public function toArray(){
         return $this->person->toArray();
+    }
+
+    public function getEdad(){
+        $birthdate = $this->person->getBirthdate();
+        $cumpleanos = new DateTime($birthdate);
+        $hoy = new DateTime();
+        $annos = $hoy->diff($cumpleanos);
+        return $annos->y;
+
     }
 
 }

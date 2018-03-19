@@ -36,11 +36,20 @@ class CustomerPage extends BasePageController
             ['title' => 'cliente', 'link' => '']
         ];
         
+        if ($customer->person->getId())
+         $form_url = "/customer/".$customer->person->getId()."/save";
+         else {
+            $form_url = "/customer/0/save";
+         }
+
         return self::render(self::$template, [
             'customer' => $customer->toArray(),
+            'age' => $customer->getEdad(),
             'breadcrumbs' => $breadcrumbs,
             'mode' => "view",
             'titles' => $titles,
+            'form_url' => $form_url,
+            "method" => "POST",
             "customers_active" => "active"
 
         ]);

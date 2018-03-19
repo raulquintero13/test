@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Person {
+abstract class Person {
 
     private $id;
     private $genre;

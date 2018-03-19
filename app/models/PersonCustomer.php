@@ -12,7 +12,8 @@ class PersonCustomer extends Person {
     private $updated_at;
     private $rol;
     private $status;
-        
+    private $tbl_customers = "customer";
+    private $tbl_persons = "person";
     
     
 
@@ -22,10 +23,11 @@ class PersonCustomer extends Person {
 
     public function findBy(int $id)  {
         $customer = $this->database->get_row(
-            "SELECT * FROM person left join customer 
-                                    ON person.id=customer.person_id 
-                                left JOIN genre ON genre.id = person.genre_id
-                                left JOIN rol ON customer.rol_id=rol.id where person.id=?", array($id)  );
+            'SELECT * FROM ' . $this->tbl_persons . ' 
+                                left join '.$this->tbl_customers. ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
+                                left JOIN genre ON genre.id = ' . $this->tbl_persons . '.genre_id
+                                left JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id 
+                                where ' . $this->tbl_persons . '.id=?', array($id)  );
 
             // var_dump($customer);die;
             
@@ -49,11 +51,12 @@ class PersonCustomer extends Person {
     }
     
     public function getAll(){
-        $allCustomers = $this->database->get_results("SELECT * FROM  person 
-                                                        inner join customer ON person.id=customer.person_id 
-                                                        LEFT JOIN genre ON genre.id = person.genre_id
-                                                        LEFT JOIN rol ON customer.rol_id=rol.id  "  );
-        // var_dump($allCustomers);die;
+        $allCustomers = $this->database->get_results(
+            'SELECT * FROM  ' . $this->tbl_persons . ' 
+                                INNER JOIN '. $this->tbl_customers . ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
+                                LEFT JOIN genre ON genre.id = '. $this->tbl_persons . '.genre_id
+                                LEFT JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id  '  );
+
         return $allCustomers;
     }
 

@@ -59,13 +59,15 @@
     </div>
 </div> #}
 
-<form action="/api/customer/{{ customer.id }}/save" method="post" >
+<form action="{{ form_url }}" method="{{ method }}" >
     <input type="hidden" name="id" value="{{ customer.id }}">
 {% if mode == "view" %}
   {% if not customer %}
     No se encontro Registro
   {% endif %}
 {% endif %}
+  
+
 <div class="form-group">
     <label for="nombre">Nombre </label>
     <input type="text" class="form-control" 
@@ -85,6 +87,11 @@
     <label for="nombre">Fecha de Nacimiento</label>
     <input type="date" class="form-control" 
         id="birthdate" name="birthdate"  placeholder="dd/mm/yyyy" name="birthdate" value="{{ customer.birthdate }}">
+  </div> 
+  <div class="form-group">
+    <label for="age">Edad</label>
+    <input type="text" class="form-control" 
+        id="age" name="age"  placeholder="dd/mm/yyyy"  value="{{ age }}">
   </div>
   <div class="form-group">
     <label for="genero">Genero</label>
