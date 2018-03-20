@@ -37,14 +37,12 @@ class CustomerPage extends BasePageController
         ];
         
         if ($customer->person->getId())
-         $form_url = "/customer/".$customer->person->getId()."/save";
+            $form_url = "/customer/".$customer->person->getId()."/save";
          else {
             $form_url = "/customer/0/save";
          }
-
         return self::render(self::$template, [
             'customer' => $customer->toArray(),
-            'age' => $customer->getEdad(),
             'breadcrumbs' => $breadcrumbs,
             'mode' => "view",
             'titles' => $titles,

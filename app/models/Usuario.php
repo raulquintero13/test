@@ -15,7 +15,10 @@ class Usuario {
     }
 
     public function findBy($id){
-        return$this->person->findBy($id);
+        $this->person->findBy($id);
+        $this->person->setAge(self::getEdad($this->person->getBirthdate()));
+        // echo '<pre>';var_dump($this->person->getCurp());echo '</pre>';die;
+        
     }
 
     public function save(){
@@ -26,7 +29,7 @@ class Usuario {
         return $this->person->toArray();
     }
 
-    public function getEdad(){
+    private function getEdad(){
         $birthdate = $this->person->getBirthdate();
         $cumpleanos = new DateTime($birthdate);
         $hoy = new DateTime();

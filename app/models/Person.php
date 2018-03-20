@@ -10,10 +10,11 @@ abstract class Person {
     private $name;
     private $lastname;
     private $surname;
+    private $birthdate;
+    private $age;
     private $email;
     private $zipcode;
     private $domicilio;
-    private $birthdate;
 
 
 
@@ -216,6 +217,26 @@ abstract class Person {
     public function setGenre($genre)
     {
         $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of age
+     */ 
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * Set the value of age
+     *
+     * @return  self
+     */ 
+    public function setAge($age)
+    {
+        $this->age = $age;
 
         return $this;
     }

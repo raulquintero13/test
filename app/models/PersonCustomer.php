@@ -7,6 +7,7 @@ use Core\SimplePDO;
 
 class PersonCustomer extends Person {
     private $database;
+    private $curp;
     private $password;
     private $created_at;
     private $updated_at;
@@ -29,15 +30,16 @@ class PersonCustomer extends Person {
                                 left JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id 
                                 where ' . $this->tbl_persons . '.id=?', array($id)  );
 
-            // var_dump($customer);die;
+            //  var_dump($customer);die;
             
         if (isset($customer)){
             $this->setId($customer['id']);
             $this->setGenre($customer['genre']);
             $this->setColonia_id($customer['colonia_id']);
+            $this->setCurp($customer['curp']);
             $this->setName($customer['name']);
             $this->setLastname($customer['lastname']);
-            $this->setSurname($customer['name']);
+            $this->setSurname($customer['surname']);
             $this->setEmail($customer['email']);
             $this->setZipcode($customer['zipcode']);
             $this->setDomicilio($customer['domicilio']);
@@ -64,6 +66,7 @@ class PersonCustomer extends Person {
         $customer['id'] = $this->getId();
         $customer['genre'] = $this->getGenre();
         $customer['colonia_id'] = $this->getColonia_id();
+        $customer['curp'] = $this->getCurp();
         $customer['name'] = $this->getName();
         $customer['lastname'] = $this->getLastname();
         $customer['surname'] = $this->getSurname();
@@ -71,6 +74,7 @@ class PersonCustomer extends Person {
         $customer['zipcode'] = $this->getZipcode();
         $customer['domicilio'] = $this->getDomicilio();
         $customer['birthdate'] = $this->getBirthdate();
+        $customer['age'] = $this->getAge();
         $customer['rol'] = $this->getRol();
         $customer['status'] = $this->getStatus();
         $customer['created_at'] = $this->getCreated_at();
@@ -182,6 +186,26 @@ class PersonCustomer extends Person {
     public function setRol($rol)
     {
         $this->rol = $rol;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of curp
+     */ 
+    public function getCurp()
+    {
+        return $this->curp;
+    }
+
+    /**
+     * Set the value of curp
+     *
+     * @return  self
+     */ 
+    public function setCurp($curp)
+    {
+        $this->curp = $curp;
 
         return $this;
     }
