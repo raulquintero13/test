@@ -27,9 +27,9 @@
     </div>
     <div class="col">
 <div class="dropdown float-right">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+{# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Buscar Cliente
-</button>
+</button> #}
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Opciones
     </button>
@@ -83,11 +83,11 @@
         </thead>
         <tbody>
             {% for customer in customers %}
-                    <tr><td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.lastname|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.surname|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.name|capitalize }}</a></td>
-                    <td class = ".d-md-none .d-lg-block"><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.genre|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.id}) }}">{{ customer.zipcode }}</a></td>
+                    <tr><td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.lastname|capitalize }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.surname|capitalize }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.name|capitalize }}</a></td>
+                    <td class = ".d-md-none .d-lg-block"><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.genre|capitalize }}</a></td>
+                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.zipcode }}</a></td>
                     </tr>
             {% endfor %}
         </tbody>

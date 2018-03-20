@@ -17,3 +17,20 @@
     curl_setopt ($ch,CURLOPT_COOKIEJAR,"cookie.txt");
     echo curl_exec ($ch);
 // }
+
+
+
+// SELECT
+//     TABLE_NAME as table_name,
+//     COLUMN_NAME as column_name,
+//     COLUMN_TYPE as data_type,
+//     COLUMN_DEFAULT as default_value,
+//     IS_NULLABLE as nullable,
+//     COLUMN_KEY as constraints,
+//     EXTRA as constraints2,
+//     CHARACTER_SET_NAME as charset,
+//     COLLATION_NAME as collation
+//     FROM INFORMATION_SCHEMA . COLUMNS
+//     WHERE table_schema = 'pos'
+//     and TABLE_NAME = 'person'
+//     ORDER BY table_name, ordinal_position
