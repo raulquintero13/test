@@ -50,13 +50,14 @@ class PersonCustomer extends Person {
             $this->setUpdated_at($customer['updated_at']);
         }
     }
-    
+    // , person . id as person_id
     public function getAll(){
         $allCustomers = $this->database->get_results(
-            'SELECT *,person.id as person_id FROM  ' . $this->tbl_persons . ' 
-                                INNER JOIN '. $this->tbl_customers . ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
-                                LEFT JOIN genre ON genre.id = '. $this->tbl_persons . '.genre_id
-                                LEFT JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id  '  );
+            'SELECT * FROM  ' . $this->tbl_customers . ' 
+            LEFT JOIN genre ON genre.id = '. $this->tbl_persons . '.genre_id
+            LEFT JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id    
+            INNER JOIN '. $this->tbl_persons . ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id '
+            );
 
         return $allCustomers;
     }
