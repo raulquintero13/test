@@ -36,11 +36,14 @@ class CustomerPage extends BasePageController
             ['title' => 'cliente', 'link' => '']
         ];
         
-        if ($customer->person->getId())
-            $form_url = "/customer/".$customer->person->getId()."/save";
+        if ($customer->get('id'))
+            $form_url = "/customer/".$customer->get('id')."/save";
          else {
             $form_url = "/customer/0/save";
          }
+        //  $customer->set('nombre',"juanete");
+        //  echo '<pre>';var_export($customer->get('name'));echo '</pre>';die;
+         
         return self::render(self::$template, [
             'customer' => $customer->toArray(),
             'breadcrumbs' => $breadcrumbs,

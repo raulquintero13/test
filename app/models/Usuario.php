@@ -4,33 +4,43 @@ use App\Models\Person;
 use \DateTime;
 
 class Usuario {
-    public $person;
+    private $personType;
 
-    public function __construct(Person $person){
-        $this->person = $person;
+    public function __construct(Person $personType){
+        $this->personType = $personType;
     }
 
     public function getAll(){
-        return $this->person->getAll();
+        return $this->personType->getAll();
     }
 
     public function findBy($id){
-        $this->person->findBy($id);
-        $this->person->setAge(self::getEdad($this->person->getBirthdate()));
-        // echo '<pre>';var_dump($this->person->getCurp());echo '</pre>';die;
-        
+        $this->personType->findBy($id);
+        $this->set('age',self::calculateAge($this->get('birthdate')));
     }
 
     public function save(){
-        echo $this->person->save();
+        echo $this->personType->save();
     }
 
+    
     public function toArray(){
-        return $this->person->toArray();
+        return $this->personType->toArray();
     }
-
-    private function getEdad(){
-        $birthdate = $this->person->getBirthdate();
+    
+    public function get($key){
+        return $this->personType->get($key);
+        
+    }
+    
+    public function set($key,$value)
+    {
+        return $this->personType->set($key,$value);
+        
+    }
+    
+    private function calculateAge(){
+        $birthdate = $this->get('birthdate');
         $cumpleanos = new DateTime($birthdate);
         $hoy = new DateTime();
         $annos = $hoy->diff($cumpleanos);
