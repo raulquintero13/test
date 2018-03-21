@@ -67,7 +67,7 @@ class PersonCustomer extends Person {
      */
     public function getAll(){
         $allCustomers = $this->database->get_results(
-            'SELECT *, customer.id as customer_id FROM  ' . $this->tbl_persons . ' 
+            'SELECT * FROM  ' . $this->tbl_persons . ' 
             INNER JOIN '. $this->tbl_customers . ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
             LEFT JOIN genre ON genre.id = '. $this->tbl_persons . '.genre_id
             LEFT JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id'    
