@@ -12,8 +12,6 @@ class PersonCustomer extends Person {
     private $password;
     private $rol;
     private $person_id;
-    private $genre_id;
-    private $rol_id;
     private $status;
     private $created_at;
     private $updated_at;
