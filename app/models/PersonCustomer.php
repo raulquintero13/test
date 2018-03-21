@@ -9,12 +9,11 @@ class PersonCustomer extends Person {
     private $database;
     private $curp;
     private $password;
-    private $created_at;
-    private $updated_at;
     private $rol;
     private $status;
+    private $created_at;
+    private $updated_at;
     private $tbl_customers = "customer";
-    private $tbl_persons = "person";
     
     
 
@@ -41,23 +40,21 @@ class PersonCustomer extends Person {
             where ' . $this->tbl_persons . '.id=?', array($id)  );
             
             
+        $vars = (array_keys(get_class_vars(__class__)));
+
+        $keys [] = array_search('tbl_customers', $vars);
+        $keys [] = array_search('tbl_persons', $vars);
+        $keys [] = array_search('database', $vars);
+        $keys [] = array_search('age', $vars);
+        
+        foreach ($keys as $key ) {
+            unset($vars[$key]);
+        }
+        
         if (isset($customer)){
-            $this->set('id',$customer['id']);
-            $this->set('genre',$customer['genre']);
-            $this->set('colonia_id',$customer['colonia_id']);
-            $this->set('curp',$customer['curp']);
-            $this->set('name',$customer['name']);
-            $this->set('lastname',$customer['lastname']);
-            $this->set('surname',$customer['surname']);
-            $this->set('email',$customer['email']);
-            $this->set('zipcode',$customer['zipcode']);
-            $this->set('domicilio',$customer['domicilio']);
-            $this->set('birthdate',$customer['birthdate']);
-            $this->set('password','xxxxx-xxxxx');
-            $this->set('rol',$customer['rol']);
-            $this->set('status',$customer['status']);
-            $this->set('created_at',$customer['created_at']);
-            $this->set('updated_at',$customer['updated_at']);
+            foreach ($vars as $key => $value) {
+                    $this->set($value, $customer[$value]);
+                }
         }
     }
 
@@ -83,14 +80,19 @@ class PersonCustomer extends Person {
     public function toArray(){
 
         $vars = (array_keys(get_class_vars(__class__)));
-        array_shift($vars); //remove database attribute // first one
+        $keys[] = array_search('tbl_customers', $vars);
+        $keys[] = array_search('tbl_persons', $vars);
+        $keys[] = array_search('database', $vars);
+
+        foreach ($keys as $key) {
+            unset($vars[$key]);
+        }
 
         foreach ($vars as $key => $value) {
             $customer[$value] = $this->get($value);
-            
         }
 
-        // $customer['id'] = $this->get('id');
+            // $customer['id'] = $this->get('id');
                 
         return $customer;
     }

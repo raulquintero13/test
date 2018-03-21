@@ -24,7 +24,7 @@ class CustomerPage extends BasePageController
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $customer = new Usuario($personCustomer);
         $customer->findBy(self::$args['id']);
-
+        
         $titles = [
             "title" => "Cliente",  
             "names" => "Nombre",

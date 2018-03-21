@@ -4,6 +4,7 @@ namespace app\models;
 
 abstract class Person {
 
+    protected $tbl_persons = "person";
     protected $id;
     protected $genre;
     protected $colonia_id;
@@ -15,6 +16,7 @@ abstract class Person {
     protected $email;
     protected $zipcode;
     protected $domicilio;
+    
 
 
 
