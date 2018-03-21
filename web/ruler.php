@@ -13,6 +13,12 @@
 <div id="square10">10</div>
 <div id="square5">5</div>
 <div id="square1">1</div>
+<pre>
+<?php
+print_r($_SERVER);
+?>
+</pre>
+
 
 </body>
 
