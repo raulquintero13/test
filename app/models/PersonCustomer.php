@@ -11,6 +11,9 @@ class PersonCustomer extends Person {
     private $curp;
     private $password;
     private $rol;
+    private $person_id;
+    private $genre_id;
+    private $rol_id;
     private $status;
     private $created_at;
     private $updated_at;
@@ -33,7 +36,7 @@ class PersonCustomer extends Person {
      */
     public function findBy(int $id)  {
         $customer = $this->database->get_row(
-            'SELECT *,person_id as id FROM ' . $this->tbl_persons . ' 
+            'SELECT * FROM ' . $this->tbl_persons . ' 
             left join '.$this->tbl_customers. ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
             left JOIN genre ON genre.id = ' . $this->tbl_persons . '.genre_id
             left JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id 
