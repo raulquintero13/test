@@ -114,14 +114,13 @@ class MenuController
             'ORIG_PATH_INFO'
         );
 
-        foreach ($indicesServer as $arg) {
-            if (isset($_SERVER[$arg])) {
-                $info [ $arg ] = $_SERVER[$arg] ;
-            }
-        }
+        // foreach ($indicesServer as $arg) {
+        //     if (isset($_SERVER[$arg])) {
+        //         $info [ $arg ] = $_SERVER[$arg] ;
+        //     }
+        // }
 
-
-
+        echo phpinfo();die;
         return $response->withJSON(
             $info,
             200,
