@@ -58,5 +58,24 @@ class MenuController
 
     }
 
+
+    public static function getInfo(Request $request, Response $response, $args)
+    {
+        
+        // self::$container = $container;
+        self::$request = $request;
+        self::$response = $response;
+        self::$args = $args;
+
+        $menu = new Menu(DbConfig::$default);
+        $info = $_SERVER;
+
+
+        return $response->withJSON(
+            $info,
+            200,
+            JSON_UNESCAPED_UNICODE
+        );
+    }
     
 }

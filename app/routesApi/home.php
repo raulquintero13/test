@@ -22,3 +22,9 @@ $app->get('/api/status', function ($request, $response, $args) {
     return App\Controllers\MenuController::getStatus($request, $response, $args);
 
 })->setName('status');
+
+$app->get('/api/info', function ($request, $response, $args) { 
+    // echo "inicio";
+    return App\Controllers\MenuController::getInfo($request, $response, $args);
+
+})->setName('status');

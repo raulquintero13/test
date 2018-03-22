@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost/api/customers";
+$url = "http://test13.sytes.net/api/customer/54";
 // $handle   = curl_init($url);
 //     if (false === $handle) {
 //         die('error');

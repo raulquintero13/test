@@ -28,12 +28,18 @@ class CustomerController
         $customer=$customerBy->toArray();
         $customer['fullName'] = $customerBy->getFullName();
         // echo '<pre>';var_dump($customer->toArray());echo '</pre>';die;
-        
-        
-        header('Content-Type: application/json');
-        $response = json_encode($customer);
-        echo $response;
-        die;
+
+        return $response->withJSON(
+            $customer,
+            200,
+            JSON_UNESCAPED_UNICODE
+        );
+
+
+        // header('Content-Type: application/json');
+        // $response = json_encode($customer);
+        // echo $response;
+        // die;
         
     }
 
@@ -47,11 +53,17 @@ class CustomerController
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $Customer = new Usuario($personCustomer);
         $customers = $Customer->getAll();
+
+        return $response->withJSON(
+            $customers,
+            200,
+            JSON_UNESCAPED_UNICODE
+        );
         
-        header('Content-Type: application/json');
-        $response = json_encode($customers);
-        echo $response;
-        die;
+        // header('Content-Type: application/json');
+        // $response = json_encode($customers);
+        // echo $response;
+        // die;
         
     }
     public static function getMenu(Request $request, Response $response, $args)
@@ -64,11 +76,17 @@ class CustomerController
         
         $menu = new Customer(DbConfig::$default);
         $menu = $menu->getMenu(1);
-
-        header('Content-Type: application/json');
-        $response = json_encode($menu);
-        echo $response;
-        die;
+        
+        return $response->withJSON(
+            $menu,
+            200,
+            JSON_UNESCAPED_UNICODE
+        );
+        
+        // header('Content-Type: application/json');
+        // $response = json_encode($menu);
+        // echo $response;
+        // die;
 
     }
 }
