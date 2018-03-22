@@ -117,8 +117,6 @@ class MenuController
         foreach ($indicesServer as $arg) {
             if (isset($_SERVER[$arg])) {
                 $info [ $arg ] = $_SERVER[$arg] ;
-            } else {
-                echo $info[ $arg ] = "-";
             }
         }
 
