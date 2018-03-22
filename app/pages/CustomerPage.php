@@ -35,16 +35,10 @@ class CustomerPage extends BasePageController
             ['title' => 'home', 'link' => '/'],
             ['title' => 'cliente', 'link' => '']
         ];
+        echo '<pre>';var_dump($customer->getFullName());echo '</pre>';
         
-        if ($customer->get('id'))
-            $form_url = "/customer/".$customer->get('id')."/save";
-         else {
-            $form_url = "/customer/0/save";
-         }
-        //  $customer->set('nombre',"juanete");
-        //  echo '<pre>';var_export($customer->get('name'));echo '</pre>';die;
-         
         return self::render(self::$template, [
+            'fullName' => $customer->getFullName(),
             'customer' => $customer->toArray(),
             'breadcrumbs' => $breadcrumbs,
             'mode' => "view",

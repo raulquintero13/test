@@ -39,6 +39,10 @@ class Usuario {
         
     }
     
+    public function getFullName(){
+        return $this->personType->getFullName();
+    }
+    
     private function calculateAge(){
         $birthdate = $this->get('birthdate');
         $cumpleanos = new DateTime($birthdate);

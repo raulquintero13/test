@@ -16,8 +16,13 @@ abstract class Person {
     protected $email;
     protected $zipcode;
     protected $domicilio;
-    
 
+    abstract public function get($key);
+    abstract public function set($key, $value);
 
+    public function getFullName()
+    {
+        return implode (" ",[$this->name,$this->lastname,$this->surname]);
+    }
 
 }
