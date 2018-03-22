@@ -44,6 +44,9 @@ class CustomerController
         $Customer = new Usuario($personCustomer);
         $customers = $Customer->getAll();
         
+        echo '<pre>';var_dump($customers);echo '</pre>';die;
+        $customers['fullName']=$customer->getFullName();
+        
         header('Content-Type: application/json');
         $response = json_encode($customers);
         echo $response;

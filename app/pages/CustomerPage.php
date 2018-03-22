@@ -35,7 +35,6 @@ class CustomerPage extends BasePageController
             ['title' => 'home', 'link' => '/'],
             ['title' => 'cliente', 'link' => '']
         ];
-        echo '<pre>';var_dump($customer->getFullName());echo '</pre>';
         
         return self::render(self::$template, [
             'fullName' => $customer->getFullName(),
