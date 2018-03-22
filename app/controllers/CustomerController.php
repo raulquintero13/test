@@ -23,11 +23,15 @@ class CustomerController
         self::$args = $args;
 
         $personCustomer = new PersonCustomer(DbConfig::$default);
-        $customer = new Usuario($personCustomer);
-        $customer->findBy(self::$args['id']);
+        $customerBy = new Usuario($personCustomer);
+        $customerBy->findBy(self::$args['id']);
+        $customer=$customerBy->toArray();
+        $customer['fullName'] = $customerBy->getFullName();
+        // echo '<pre>';var_dump($customer->toArray());echo '</pre>';die;
+        
         
         header('Content-Type: application/json');
-        $response = json_encode($customer->toArray());
+        $response = json_encode($customer);
         echo $response;
         die;
         
@@ -43,9 +47,6 @@ class CustomerController
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $Customer = new Usuario($personCustomer);
         $customers = $Customer->getAll();
-        
-        echo '<pre>';var_dump($customers);echo '</pre>';die;
-        $customers['fullName']=$customer->getFullName();
         
         header('Content-Type: application/json');
         $response = json_encode($customers);
