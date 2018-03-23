@@ -146,7 +146,7 @@ class MenuController
             echo "<br><br>";
             echo "log<br><Br>\n";
             echo shell_exec("/usr/bin/git log --oneline");
-            echo "</pre>";"
+            echo "</pre>";
         }
         die;
     }
