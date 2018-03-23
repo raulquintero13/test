@@ -28,3 +28,10 @@ $app->get('/api/info', function ($request, $response, $args) {
     return App\Controllers\MenuController::getInfo($request, $response, $args);
 
 })->setName('status');
+
+$app->get('/update', function ($request, $response, $args) { //  ********************** como cachar este error????    
+    // var_dump($args);die;
+    //  echo "inicio";die;
+    return App\Controllers\MenuController::update($this, $request, $response, $args); 
+    
+});

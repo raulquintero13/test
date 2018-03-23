@@ -127,5 +127,23 @@ class MenuController
             JSON_UNESCAPED_UNICODE
         );
     }
-    
+   public static function update(Request $request, Response $response, $args)
+    {
+        
+        // self::$container = $container;
+        self::$request = $request;
+        self::$response = $response;
+        self::$args = $args;
+
+        // define('PRIVATE_KEY', 'XXXXXXXXXXXXXXXXxxx');
+
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST'
+        //         && $_REQUEST['thing'] === PRIVATE_KEY)
+        {
+
+            echo shell_exec("git pull");
+        }
+        die;
+    }
+ 
 }
