@@ -142,7 +142,7 @@ class MenuController
         {
         echo __DIR__."\n";
 
-            echo shell_exec(__DIR__. "/../../git pull 2>&1");
+            echo shell_exec("/usr/bin/git pull 2>&1");
         }
         die;
     }
