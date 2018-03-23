@@ -142,7 +142,7 @@ class MenuController
         {
         echo "hola";
 
-            echo shell_exec(__DIR__."git pull");
+            echo shell_exec(__DIR__." git pull");
         }
         die;
     }
