@@ -141,7 +141,7 @@ class MenuController
         //         && $_REQUEST['thing'] === PRIVATE_KEY)
         {
 
-            echo shell_exec("git pull");
+            echo shell_exec(__DIR__."git pull");
         }
         die;
     }
