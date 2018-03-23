@@ -140,6 +140,7 @@ class MenuController
         // if ($_SERVER['REQUEST_METHOD'] === 'POST'
         //         && $_REQUEST['thing'] === PRIVATE_KEY)
         {
+        echo "hola";
 
             echo shell_exec(__DIR__."git pull");
         }
