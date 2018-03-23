@@ -140,7 +140,7 @@ class MenuController
         // if ($_SERVER['REQUEST_METHOD'] === 'POST'
         //         && $_REQUEST['thing'] === PRIVATE_KEY)
         {
-        echo "Update:\n\n";
+        echo "Update:<br><br>\n";
 
             echo shell_exec("/usr/bin/git pull 2>&1");
         }
