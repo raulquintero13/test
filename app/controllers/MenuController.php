@@ -142,7 +142,7 @@ class MenuController
         {
         echo "Update:<br><br>\n";
 
-            echo shell_exec("/usr/bin/git pull 2>&1");
+            echo shell_exec("/usr/bin/git pull");
         }
         die;
     }
