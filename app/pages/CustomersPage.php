@@ -7,6 +7,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
 use App\Models\PersonCustomer;
 use App\Models\Usuario;
+use App\Models\Menu;
 
 
 class CustomersPage extends BasePageController
@@ -21,7 +22,10 @@ class CustomersPage extends BasePageController
         
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $customer = new Usuario($personCustomer);
+        $menu = new Menu(DbConfig::$default);
         $customers = $customer->getAll();
+        $menus = $menu->getMenu();
+        
 
         
         $titles = [
@@ -34,6 +38,7 @@ class CustomersPage extends BasePageController
         ];
         
         return self::render(self::$template, [
+            'menus' =>$menus,
             'customers' => $customers,
             'titles' => $titles,
             "customers_active" => "active"

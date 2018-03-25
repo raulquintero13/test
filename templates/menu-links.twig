@@ -1,11 +1,19 @@
-<!--includes/menu-links.html-->
 {% for menu in menus %}
-    <li>
-        <a href="{{ menu.path_option }}">{{ menu }}</a>
-        {% if menu.sub %}
-            <ul>
-                {% include "includes/menu-links.html" with {'links': menu.sub} %}
+    {% if menu.menu == "*div*" %}
+    <li class="dropdown-divider"></li>
+    {% else %}
+    <li class="nav-item dropdown ">
+
+        <a {% if menu.parent_id == 0 %}	class="nav-link " {% else %}	class="dropdown-item" {% endif %} href="{{ menu.path_option }}">{{ menu.menu|capitalize }}</a>
+
+        {% if menu.sub is iterable %}
+
+            <ul class="dropdown-menu">
+                {% include "./menu-links.twig" with {'menus': menu.sub} only	 %}
             </ul>
         {% endif %}
     </li>
+    {% endif %}
+    
 {% endfor %}
+

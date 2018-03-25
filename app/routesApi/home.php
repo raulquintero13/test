@@ -1,5 +1,5 @@
 <?php
-$app->get('/api/customers', function ($request, $response, $args) { 
+$app->get('/{token}/api/customers', function ($request, $response, $args) { 
     // echo "inicio";die;
     return App\Controllers\CustomerController::getCustomers($request, $response, $args); 
     

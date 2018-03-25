@@ -7,6 +7,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
 use App\Models\PersonCustomer;
 use App\Models\Usuario;
+use App\Models\Token;
 
 class CustomerController
 {
@@ -50,20 +51,22 @@ class CustomerController
         self::$response = $response;
         self::$args = $args;
 
+
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $Customer = new Usuario($personCustomer);
         $customers = $Customer->getAll();
-
+        
+        $token = Token::generateNewToken();
+        $result = [
+            'token' =>$token,
+            'customers'=>$customers];
+        
         return $response->withJSON(
-            $customers,
+            $result,
             200,
             JSON_UNESCAPED_UNICODE
         );
         
-        // header('Content-Type: application/json');
-        // $response = json_encode($customers);
-        // echo $response;
-        // die;
         
     }
     public static function getMenu(Request $request, Response $response, $args)
@@ -83,10 +86,6 @@ class CustomerController
             JSON_UNESCAPED_UNICODE
         );
         
-        // header('Content-Type: application/json');
-        // $response = json_encode($menu);
-        // echo $response;
-        // die;
-
+        
     }
 }
