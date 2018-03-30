@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use Core\DbConfig;
+use Core\Libs\Database\DbConfig;
 use Core\Libs\Traits\Openssl;
 use Core\Models\PersonCustomer;
 use Core\Models\Usuario;
@@ -31,18 +31,15 @@ class Customer extends BasePageController
 
         // testing encrypt funcions
         $name = $customer->get("name");
-        $lastname = $customer->get("lastname");
-        $encryptedName = Openssl::encode($lastname);
+        $encryptedName = Openssl::encode($name);
         $customer->set("name",$encryptedName);
+        $unencryptedName = Openssl::decode($encryptedName);
+        $customer->set("lastname",$unencryptedName);
         // end testing
         
         $menu = new Menu(DbConfig::$default);
         $menus = $menu->getMenu();
         
-        $unencryptedLastname = Openssl::decode($encryptedName);
-        // echo '<!--';print_r($unencryptedLastname);echo '-->';die;
-        
-        $customer->set("lastname",$unencryptedLastname."hey");
         $titles = [
             "title" => "Cliente",  
             "names" => "Nombre",

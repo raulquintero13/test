@@ -1,7 +1,7 @@
 <?php
 namespace Core\Models;
-use App\Config\DbConfig;
-use Core\SimplePDO;
+use Core\Libs\Database\DbConfig;
+use Core\Libs\Database\SimplePDO;
 
 
 class Menu {

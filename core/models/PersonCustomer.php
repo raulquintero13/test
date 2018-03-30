@@ -3,7 +3,7 @@ namespace Core\Models;
 
 use App\Config\DbConfig;
 use Core\Models\Person;
-use Core\SimplePDO;
+use Core\Libs\Database\SimplePDO;
 
 class PersonCustomer extends Person {
     private $tbl_customers = "customer";

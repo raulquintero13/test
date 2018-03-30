@@ -3,7 +3,7 @@ namespace Core\Models;
 
 use Core\Models\Person;
 use Core\Config\DbConfig;
-use Core\SimplePDO;
+use Core\Libs\Database\SimplePDO;
 
 class PersonEmployee extends Person {
    private $database;

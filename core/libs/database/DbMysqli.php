@@ -1,5 +1,6 @@
 <?php
-namespace Core;
+namespace Core\Libs\Database;
+
 use \Exception;
 use Core\DatabaseConfig;
 

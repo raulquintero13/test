@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use Core\DbConfig;
+use Core\Libs\Database\DbConfig;
 use Core\Models\Menu;
 use Core\Models\Customer;
 
