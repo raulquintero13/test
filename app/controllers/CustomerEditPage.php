@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Pages;
+namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\Customer;
+use Core\Models\Customer;
 
 class CustomerAddPage extends BasePageController
 {
@@ -30,7 +30,7 @@ class CustomerAddPage extends BasePageController
         $breadcrumbs = [
             ['title' => 'home', 'link' => '/'],
             [ 'title' => 'clientes', 'link' => '/customers'],
-            ['title' => 'agregar', 'link' => NULL]
+            ['title' => 'editar', 'link' => NULL]
         ];
         
         return self::render(self::$template, [

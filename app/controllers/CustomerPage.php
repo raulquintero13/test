@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Pages;
+namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\Customer;
+use Core\Models\PersonCustomer;
+use Core\Models\Usuario;
+use Core\Models\Menu;
 
-class CustomerAddPage extends BasePageController
+class CustomerPage extends BasePageController
 {
     private static $template = 'customer.twig';
     
@@ -18,9 +20,14 @@ class CustomerAddPage extends BasePageController
         self::$response = $response;
         self::$args = $args;
 
+        //  var_dump(self::$request->getParsedBody()['id']);die; 
+       
+        $personCustomer = new PersonCustomer(DbConfig::$default);
+        $customer = new Usuario($personCustomer);
+        $customer->findBy(self::$args['id']);
+        $menu = new Menu(DbConfig::$default);
+        $menus = $menu->getMenu();
         
-        // var_dump($customer);die;
-
         $titles = [
             "title" => "Cliente",  
             "names" => "Nombre",
@@ -29,14 +36,18 @@ class CustomerAddPage extends BasePageController
         ];
         $breadcrumbs = [
             ['title' => 'home', 'link' => '/'],
-            [ 'title' => 'clientes', 'link' => '/customers'],
-            ['title' => 'editar', 'link' => NULL]
+            ['title' => 'cliente', 'link' => '']
         ];
         
         return self::render(self::$template, [
+            'fullName' => $customer->getFullName(),
+            'customer' => $customer->toArray(),
+            'menus' => $menus,
             'breadcrumbs' => $breadcrumbs,
-            'mode' => "add",
+            'mode' => "view",
             'titles' => $titles,
+            'form_url' => $form_url,
+            "method" => "POST",
             "customers_active" => "active"
 
         ]);

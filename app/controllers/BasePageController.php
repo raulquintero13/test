@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Pages;
-
+namespace App\Controllers;
+use Core\Models\Token;
 
 class BasePageController
 {
@@ -18,12 +18,10 @@ class BasePageController
 
     public static function getDataFromApi($url){
 
-        $url = 'http://localhost/api/'.$url; // path to your JSON file
-        // $data = file_get_contents($url); // put the contents of the file into a variable
-        // $data = json_decode($data);
-        // var_dump($data);die;
-
+        $token = Token::generateNewToken();
         
+        $url = "http://test.local/$token/api/".$url; // path to your JSON file
+               
         //  Initiate curl
         $ch = curl_init();
         // Disable SSL verification

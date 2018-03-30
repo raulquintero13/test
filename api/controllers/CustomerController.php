@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Controllers;
+namespace Api\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\PersonCustomer;
-use App\Models\Usuario;
-use App\Models\Token;
+use Core\Models\PersonCustomer;
+use Core\Models\Usuario;
+use Core\Models\Token;
 
 class CustomerController
 {
@@ -55,7 +55,9 @@ class CustomerController
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $Customer = new Usuario($personCustomer);
         $customers = $Customer->getAll();
-        
+       
+        ### esto va en el lado del cliente
+        # aqui hay que validar el token con un middleware
         $token = Token::generateNewToken();
         $result = [
             'token' =>$token,

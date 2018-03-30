@@ -1,8 +1,8 @@
 <?php
-namespace App\Models;
+namespace Core\Models;
 
-use App\Models\Person;
 use App\Config\DbConfig;
+use Core\Models\Person;
 use Core\SimplePDO;
 
 class PersonCustomer extends Person {

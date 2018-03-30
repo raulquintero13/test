@@ -1,7 +1,8 @@
 <?php
-namespace App\Models;
-use App\Models\Person;
-use App\Config\DbConfig;
+namespace Core\Models;
+
+use Core\Models\Person;
+use Core\Config\DbConfig;
 use Core\SimplePDO;
 
 class PersonEmployee extends Person {

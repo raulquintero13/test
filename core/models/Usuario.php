@@ -1,6 +1,7 @@
 <?php
-namespace App\Models;
-use App\Models\Person;
+namespace Core\Models;
+
+use Core\Models\Person;
 use \DateTime;
 
 class Usuario {

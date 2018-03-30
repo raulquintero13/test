@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Pages;
+namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\PersonCustomer;
-use App\Models\Usuario;
+use Core\Models\PersonCustomer;
+use Core\Models\Usuario;
 
 class Index extends BasePageController
 {

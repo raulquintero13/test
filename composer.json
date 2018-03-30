@@ -11,9 +11,9 @@
     "autoload": {
         "psr-4": {
             "Core\\": "core/",
+            "Api\\Controllers\\": "api/controllers/",
+            "Core\\Models\\": "core/models/",
             "App\\Controllers\\": "app/controllers/",
-            "App\\Models\\": "app/models/",
-            "App\\Pages\\": "app/pages/",
             "phpUnit\\": "phpUnit/"
                     
         }

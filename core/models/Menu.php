@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace Core\Models;
 use App\Config\DbConfig;
 use Core\SimplePDO;
 

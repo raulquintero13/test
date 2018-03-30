@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace Core\Models;
 
 abstract class Person {
 

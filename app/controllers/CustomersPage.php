@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Pages;
+namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\PersonCustomer;
-use App\Models\Usuario;
-use App\Models\Menu;
+use Core\Models\PersonCustomer;
+use Core\Models\Usuario;
+use Core\Models\Menu;
 
 
 class CustomersPage extends BasePageController
@@ -22,11 +22,11 @@ class CustomersPage extends BasePageController
         
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $customer = new Usuario($personCustomer);
-        $menu = new Menu(DbConfig::$default);
         $customers = $customer->getAll();
+        $menu = new Menu(DbConfig::$default);
         $menus = $menu->getMenu();
         
-
+        // var_dump(($customers));die;
         
         $titles = [
             "title" => "Clientes",  

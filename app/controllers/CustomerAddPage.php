@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Pages;
+namespace App\Controllers;
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
-use App\Models\PersonCustomer;
-use App\Models\Usuario;
+use Core\Models\Customer;
 
-class CustomerPage extends BasePageController
+class CustomerAddPage extends BasePageController
 {
     private static $template = 'customer.twig';
     
@@ -19,12 +18,9 @@ class CustomerPage extends BasePageController
         self::$response = $response;
         self::$args = $args;
 
-        //  var_dump(self::$request->getParsedBody()['id']);die; 
-       
-        $personCustomer = new PersonCustomer(DbConfig::$default);
-        $customer = new Usuario($personCustomer);
-        $customer->findBy(self::$args['id']);
         
+        // var_dump($customer);die;
+
         $titles = [
             "title" => "Cliente",  
             "names" => "Nombre",
@@ -33,17 +29,14 @@ class CustomerPage extends BasePageController
         ];
         $breadcrumbs = [
             ['title' => 'home', 'link' => '/'],
-            ['title' => 'cliente', 'link' => '']
+            [ 'title' => 'clientes', 'link' => '/customers'],
+            ['title' => 'agregar', 'link' => NULL]
         ];
         
         return self::render(self::$template, [
-            'fullName' => $customer->getFullName(),
-            'customer' => $customer->toArray(),
             'breadcrumbs' => $breadcrumbs,
-            'mode' => "view",
+            'mode' => "add",
             'titles' => $titles,
-            'form_url' => $form_url,
-            "method" => "POST",
             "customers_active" => "active"
 
         ]);
