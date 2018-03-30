@@ -30,11 +30,11 @@ class Customer extends BasePageController
         $customer->findBy(self::$args['id']);
 
         // testing encrypt funcions
-        $name = $customer->get("name");
-        $encryptedName = Openssl::encode($name);
-        $customer->set("name",$encryptedName);
-        $unencryptedName = Openssl::decode($encryptedName);
-        $customer->set("lastname",$unencryptedName);
+        //$name = $customer->get("name");
+        //$encryptedName = Openssl::encode($name);
+        //$customer->set("name",$encryptedName);
+        //$unencryptedName = Openssl::decode($encryptedName);
+        //$customer->set("lastname",$unencryptedName);
         // end testing
         
         $menu = new Menu(DbConfig::$default);
