@@ -10,10 +10,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "Core\\": "core/",
-            "Api\\Controllers\\": "api/controllers/",
             "Core\\Models\\": "core/models/",
+            "Core\\Libs\\Traits": "core/libs/traits/",
             "App\\Controllers\\": "app/controllers/",
+            "Api\\Controllers\\": "api/controllers/",
             "phpUnit\\": "phpUnit/"
                     
         }
