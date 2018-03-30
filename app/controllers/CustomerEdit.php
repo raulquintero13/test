@@ -5,9 +5,10 @@ namespace App\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\DbConfig;
+use Core\Models\Menu;
 use Core\Models\Customer;
 
-class CustomerAddPage extends BasePageController
+class CustomerEdit extends BasePageController
 {
     private static $template = 'customer.twig';
     
@@ -18,8 +19,9 @@ class CustomerAddPage extends BasePageController
         self::$response = $response;
         self::$args = $args;
 
-        
-        // var_dump($customer);die;
+        $menu = new Menu(DbConfig::$default);
+        $menus = $menu->getMenu();
+
 
         $titles = [
             "title" => "Cliente",  
@@ -29,11 +31,12 @@ class CustomerAddPage extends BasePageController
         ];
         $breadcrumbs = [
             ['title' => 'home', 'link' => '/'],
-            [ 'title' => 'clientes', 'link' => '/customers'],
-            ['title' => 'agregar', 'link' => NULL]
+            ['title' => 'clientes', 'link' => '/customers'],
+            ['title' => 'editar', 'link' => NULL]
         ];
         
         return self::render(self::$template, [
+            'menus' => $menus,
             'breadcrumbs' => $breadcrumbs,
             'mode' => "add",
             'titles' => $titles,

@@ -1,7 +1,7 @@
 <?php 
 namespace Libs\Traits;
 
-trait Openssl {
+trait OpensslKey {
 
     /**
      * simple method to encrypt or decrypt a plain text string

@@ -9,52 +9,42 @@ use Core\Models\PersonCustomer;
 use Core\Models\Usuario;
 use Core\Models\Menu;
 
-class CustomerPage extends BasePageController
+
+class Customers extends BasePageController
 {
-    private static $template = 'customer.twig';
+    private static $template = 'customers.twig';
     
     public static function handler($container,  Request $request,Response $response,$args){
-        
         self::$container = $container;
         self::$request = $request;
         self::$response = $response;
         self::$args = $args;
-
-        //  var_dump(self::$request->getParsedBody()['id']);die; 
-       
+        
         $personCustomer = new PersonCustomer(DbConfig::$default);
         $customer = new Usuario($personCustomer);
-        $customer->findBy(self::$args['id']);
+        $customers = $customer->getAll();
         $menu = new Menu(DbConfig::$default);
         $menus = $menu->getMenu();
         
+        // var_dump(($customers));die;
+        
         $titles = [
-            "title" => "Cliente",  
-            "names" => "Nombre",
+            "title" => "Clientes",  
+            "names" => "Nombres",
             "lastname" => "Apellido Paterno", 
             "surname"=>"Apellido Materno",
-        ];
-        $breadcrumbs = [
-            ['title' => 'home', 'link' => '/'],
-            ['title' => 'cliente', 'link' => '']
+            "genre"=>"Genero",
+            "zipcode"=>"zipcode",
         ];
         
         return self::render(self::$template, [
-            'fullName' => $customer->getFullName(),
-            'customer' => $customer->toArray(),
-            'menus' => $menus,
-            'breadcrumbs' => $breadcrumbs,
-            'mode' => "view",
+            'menus' =>$menus,
+            'customers' => $customers,
             'titles' => $titles,
-            'form_url' => $form_url,
-            "method" => "POST",
             "customers_active" => "active"
 
         ]);
 
-        //        return $container->view->render($response, 'index.twig', [
-        //            'name' => $args['name']
-        //       ]);
     }
 
 }

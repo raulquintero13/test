@@ -1,5 +1,7 @@
 <?php 
-namespace Libs\Traits;
+// namespace Libs\Traits;
+
+namespace Core\Libs\Traits;
 
 trait Openssl{
 
