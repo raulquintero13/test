@@ -5,14 +5,14 @@ namespace App\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Core\Libs\Database\DbConfig;
-use Core\Libs\Traits\Openssl;
+// use Core\Libs\Traits\Openssl;
 use Core\Models\PersonCustomer;
 use Core\Models\Usuario;
 use Core\Models\Menu;
 
 class Customer extends BasePageController
 {
-    use Openssl;
+    // use Openssl;
 
     private static $template = 'customer.twig';
     

@@ -1,8 +1,5 @@
 <!doctype html>
 <html>
-
-{# // checar sintaxis para comparar dos cadenas #}
-    
  
 <head>
     <meta charset="utf-8">
@@ -14,110 +11,75 @@
 
     <title>
         {% block title %}Base  - Template[tiles]{% endblock %}
-    </title>
+      </title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ {% block head %}{% endblock %}
 
-<!-- SmartMenus jQuery Bootstrap Addon CSS -->
-<link href="../addons/bootstrap-4/jquery.smartmenus.bootstrap-4.css" rel="stylesheet">
+	<!--[if lte IE 9]>
+		<script src="/assets/js/plugins/placeholder/jquery.placeholder.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('input, textarea').placeholder();
+			});
+		</script>
+	<![endif]-->
 
- {% block head %}
 
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/img/favicon.ico" />
+	<!-- Apple devices Homescreen icon -->
+	<link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon-precomposed.png" />
 
-{% endblock %}
-<style>
-
-@media (min-width: 1200px) {
-    .container{
-        max-width: 100%;
-   }
-}
-.main {
-  margin:auto;
-  padding: 16px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  {# width: 1150px; #}
-  /*height: 1500px;  Used in this example to enable scrolling */
-}
-
-#header-fixed {
-    position: fixed;
-    top: 0px; display:none;
-    background-color:white;
-}
-  
-</style>
 </head>
 
 
-<body>
+<body  data-layout-topbar="fixed" class="theme-darkblue">
 
-
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  
-      <!-- Left nav -->
-      <ul class="nav navbar-nav mr-auto">
-     
-      </ul>
-
+<div id="navigation">
+  <div class="container-fluid">
+    <a href="#" id="brand">FLAT</a>
+    <a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </a>
       <!-- Right nav -->
-      <ul class="nav navbar-nav">
-
-                   <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              {% include "./menu-links.twig" with {'menus':menus} only %}
-        <li class="nav-item"><a class="nav-link" href="#">Ordenes</a></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#">Administracion</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item disabled" href="#">Disabled link</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li class="dropdown-divider"></li>
-            <li class="dropdown-header">Finanzas</li>
-            <li><a class="dropdown-item" href="#">Inventarios</a></li>
-            <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Reportes</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">A long sub menu</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><a class="dropdown-item" href="#">One more link</a></li>
-                    <li><a class="dropdown-item" href="#">Menu item 1</a></li>
-                  </ul>
-                </li>
-                <li><a class="dropdown-item" href="#">Another link</a></li>
-                <li><a class="dropdown-item" href="#">One more link</a></li>
-              </ul>
-            </li>
-          </ul>
+      <ul class="main-nav">
+        <li><a href="/">
+              <span>Home</span>
+              </a>
         </li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#">Raul Quintero</a>
+        
+        {% include "./menu-links.twig" with {'menus':menus} only %}
+        
+        <li>
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+          <span>Forms</span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="forms-basic.html">Basic forms</a>
+          </li>
+          <li>
+            <a href="forms-extended.html">Extended forms</a>
+          </li>
+          <li>
+            <a href="forms-validation.html">Validation</a>
+          </li>
+          <li>
+            <a href="forms-wizard.html">Wizard</a>
+          </li>
+        </ul>
+      </li>
+      
+        <li>
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <span>Raul Quintero</span>
+            <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item " href="#">POS</a></li>
-            <li class="dropdown-divider"></li>
-            <li class="dropdown-header">Configuracion</li>
-            <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Idioma</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                <li><a class="dropdown-item disabled" href="#">Disabled item</a></li>
-                <li><a class="dropdown-item" href="#">One more link</a></li>
-              </ul>
-            </li>
-            <li><a class="dropdown-item" href="#">Template</a></li>
-            <li class="dropdown-divider"></li>
-            <li><a class="dropdown-item " href="#">Salir</a></li>
+            <li><a href="#">POS</a></li>
+            
           </ul>
         </li>
         
@@ -125,7 +87,6 @@
   
     </div>
   </div>
-</nav>
 
 
 
@@ -137,11 +98,91 @@
 
 
 
-<ul class="main-menu">
-    {% include "./menu-links.twig" with {'links':links} only %}
-</ul>
+
+<div class="container-fluid nav-hidden" id="content">
+<div id="left">
+        <form action="search-results.html" method="GET" class='search-form'>
+            <div class="search-pane">
+                <input type="text" name="search" placeholder="Search here...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+{% block side_menu %}{% endblock %}
+</div>
+
+<div id="main">
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="pull-left">
+                <h1>{% block title_page %} {% endblock %}</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="minitiles">
+                    <li class='grey'>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                        </a>
+                    </li>
+                    <li class='lightgrey'>
+                        <a href="#">
+                            <i class="fa fa-globe"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="stats">
+                    <li class='satgreen'>
+                        <i class="fa fa-money"></i>
+
+                        <div class="details">
+                            <span class="big">$324,12</span>
+                            <span>Balance</span>
+                        </div>
+                    </li>
+                    <li class='lightred'>
+                        <i class="fa fa-calendar"></i>
+
+                        <div class="details">
+                            <span class="big">February 22, 2013</span>
+                            <span>Wednesday, 13:56</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <a href="more-login.html">Home</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="tables-basic.html">Tables</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="tables-advanced.html">Advanced tables</a>
+                </li>
+            </ul>
+            <div class="close-bread">
+                <a href="#">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+
+
 
 {% block content %}{% endblock %}
+
+</div>
+
+</div>
+
+
+
+
 
 
 <!-- Modal -->
@@ -169,34 +210,9 @@
 
 
  
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-    <!-- SmartMenus jQuery plugin -->
-    <script type="text/javascript" src="/addons/js/smartmenus/jquery.smartmenus.js"></script>
-
-    <!-- SmartMenus jQuery Bootstrap 4 Addon -->
-    <script type="text/javascript" src="../addons/bootstrap-4/jquery.smartmenus.bootstrap-4.js"></script>
-
+ 
 
 </body>
-<script>
-var tableOffset = $("#table-1").offset().top;
-var $header = $("#table-1 > thead").clone();
-var $fixedHeader = $("#header-fixed").append($header);
 
-$(window).bind("scroll", function() {
-    var offset = $(this).scrollTop();
-
-    if (offset >= tableOffset && $fixedHeader.is(":hidden")) {
-        $fixedHeader.show();
-    }
-    else if (offset < tableOffset) {
-        $fixedHeader.hide();
-    }
-});
-</script>
 
 </html>

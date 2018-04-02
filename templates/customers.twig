@@ -4,103 +4,290 @@
     Customers List
     {% endblock %}
     
-{% block head%} {% endblock %}
+{% block head%} 
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<!-- jQuery UI -->
+	<link rel="stylesheet" href="/assets/css/plugins/jquery-ui/jquery-ui.min.css">
+	<!-- dataTables -->
+	<link rel="stylesheet" href="/assets/css/plugins/datatable/TableTools.css">
+	<!-- chosen -->
+	<link rel="stylesheet" href="/assets/css/plugins/chosen/chosen.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<!-- Color CSS -->
+	<link rel="stylesheet" href="/assets/css/themes.css">
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery.min.js"></script>
+
+	<!-- Nice Scroll -->
+	<script src="/assets/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+	<!-- imagesLoaded -->
+	<script src="/assets/js/plugins/imagesLoaded/jquery.imagesloaded.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="/assets/js/plugins/jquery-ui/jquery-ui.js"></script>
+	<!-- slimScroll -->
+	<script src="/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<!-- Bootbox -->
+	<script src="/assets/js/plugins/bootbox/jquery.bootbox.js"></script>
+	<!-- New DataTables -->
+	<script src="/assets/js/plugins/momentjs/jquery.moment.min.js"></script>
+	<script src="/assets/js/plugins/momentjs/moment-range.min.js"></script>
+	<script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="/assets/js/plugins/datatables/extensions/dataTables.tableTools.min.js"></script>
+	<script src="/assets/js/plugins/datatables/extensions/dataTables.colReorder.min.js"></script>
+	<script src="/assets/js/plugins/datatables/extensions/dataTables.colVis.min.js"></script>
+	<script src="/assets/js/plugins/datatables/extensions/dataTables.scroller.min.js"></script>
+
+	<!-- Chosen -->
+	<script src="/assets/js/plugins/chosen/chosen.jquery.min.js"></script>
+
+	<!-- Theme framework -->
+	<script src="/assets/js/eakroko.min.js"></script>
+	<!-- Theme scripts -->
+	<script src="/assets/js/application.min.js"></script>
+	<!-- Just for demonstration -->
+	<script src="/assets/js/demonstration.min.js"></script>
 
 
+{% endblock %}
+
+
+
+{% block side_menu %}
+        <div class="subnav">
+            <div class="subnav-title">
+                <a href="#" class='toggle-subnav'>
+                    <i class="fa fa-angle-down"></i>
+                    <span>Content</span>
+                </a>
+            </div>
+            <ul class="subnav-menu">
+                <li class='dropdown'>
+                    <a href="#" data-toggle="dropdown">Articles</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action #1</a>
+                        </li>
+                        <li>
+                            <a href="#">Antoher Link</a>
+                        </li>
+                        <li class='dropdown-submenu'>
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>Go to level 3</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">This is level 3</a>
+                                </li>
+                                <li>
+                                    <a href="#">Unlimited levels</a>
+                                </li>
+                                <li>
+                                    <a href="#">Easy to use</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                </li>
+                <li>
+                    <a href="#">Pages</a>
+                </li>
+                <li>
+                    <a href="#">Comments</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subnav">
+            <div class="subnav-title">
+                <a href="#" class='toggle-subnav'>
+                    <i class="fa fa-angle-down"></i>
+                    <span>Plugins</span>
+                </a>
+            </div>
+            <ul class="subnav-menu">
+                <li>
+                    <a href="#">Cache manager</a>
+                </li>
+                <li class='dropdown'>
+                    <a href="#" data-toggle="dropdown">Import manager</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action #1</a>
+                        </li>
+                        <li>
+                            <a href="#">Antoher Link</a>
+                        </li>
+                        <li class='dropdown-submenu'>
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>Go to level 3</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">This is level 3</a>
+                                </li>
+                                <li>
+                                    <a href="#">Unlimited levels</a>
+                                </li>
+                                <li>
+                                    <a href="#">Easy to use</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Contact form generator</a>
+                </li>
+                <li>
+                    <a href="#">SEO optimization</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subnav">
+            <div class="subnav-title">
+                <a href="#" class='toggle-subnav'>
+                    <i class="fa fa-angle-down"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <ul class="subnav-menu">
+                <li>
+                    <a href="#">Theme settings</a>
+                </li>
+                <li class='dropdown'>
+                    <a href="#" data-toggle="dropdown">Page settings</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action #1</a>
+                        </li>
+                        <li>
+                            <a href="#">Antoher Link</a>
+                        </li>
+                        <li class='dropdown-submenu'>
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>Go to level 3</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">This is level 3</a>
+                                </li>
+                                <li>
+                                    <a href="#">Unlimited levels</a>
+                                </li>
+                                <li>
+                                    <a href="#">Easy to use</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Security settings</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subnav subnav-hidden">
+            <div class="subnav-title">
+                <a href="#" class='toggle-subnav'>
+                    <i class="fa fa-angle-right"></i>
+                    <span>Default hidden</span>
+                </a>
+            </div>
+            <ul class="subnav-menu">
+                <li>
+                    <a href="#">Menu</a>
+                </li>
+                <li class='dropdown'>
+                    <a href="#" data-toggle="dropdown">With submenu</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action #1</a>
+                        </li>
+                        <li>
+                            <a href="#">Antoher Link</a>
+                        </li>
+                        <li class='dropdown-submenu'>
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>More stuff</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">This is level 3</a>
+                                </li>
+                                <li>
+                                    <a href="#">Easy to use</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Security settings</a>
+                </li>
+            </ul>
+        </div>
+{% endblock %}
+
+
+{% block title_page %}Customers List {% endblock %}
 
 {% block content %}
 
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box box-color box-bordered">
+                    <div class="box-title">
+                        <h3>
+                            <i class="fa fa-table"></i>
+                            Customers
+                        </h3>
+                    </div>
+                    <div class="box-content nopadding">
+                        <table class="table table-hover table-nomargin table-bordered dataTable dataTable-tools">
+                            <thead>
+                            <tr>
+                                <th>{{ titles.lastname }} </th>
+                                <th>{{ titles.surname }}</th>
+                                <th class='hidden-350'>{{titles.names }}</th>
+                                <th class='hidden-1024'>{{titles.genre }}</th>
+                                <th class='hidden-480'>{{titles.status }}</th>
 
-<div class="main">
-{# <br> #}
-{# <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ titles.title }}</li>
-  </ol>
-</nav> #}
-{# <div class=main> #}
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+                                {% for customer in customers %}
+                                    <tr>
+                                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.lastname|capitalize }}</a></td>
+                                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.surname|capitalize }}</a></td>
+                                    <td class='hidden-350'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.name|capitalize }}</a></td>
+                                    <td class='hidden-1024'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.genre|capitalize }}</a></td>
+                                    <td class='hidden-480'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.status }}</a></td>
+                                    </tr>
+                                {% endfor %}
+                                
+                            </tr>
+                           
+                            </tbody>
+                        </table>
+                        {{ path_for('customerAdd') }}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col">
-    <b>Clientes</b>
-    </div>
-    <div class="col">
-<div class="dropdown float-right">
-{# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Buscar Cliente
-</button> #}
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Opciones
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="{{ path_for('customerAdd') }}">Agregar Cliente</a>
-        <a class="dropdown-item" href="#">Exportar a .xls</a>
-        <a class="dropdown-item" href="#">Exportar a .pdf</a>
-        <a class="dropdown-item" href="#">Imprimir</a>
-    </div>
-    </div>
-    </div>
-  </div>
 
-{# 
-<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group" role="group" aria-label="First group">
-    <button type="button" class="btn btn-secondary">1</button>
-    <button type="button" class="btn btn-secondary">2</button>
-    <button type="button" class="btn btn-secondary">3</button>
-    <button type="button" class="btn btn-secondary">4</button>
-  </div>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <div class="input-group-text" id="btnGroupAddon2">@</div>
-    </div>
-    <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
-  </div>
+
+
+
+
+    
 </div>
 
-<div class="btn-group">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Buscar Cliente
-</button>
-    <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Opciones
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Agregar Cliente</a>
-        <a class="dropdown-item" href="#">Exportar a .xls</a>
-        <a class="dropdown-item" href="#">Exportar a .pdf</a>
-        <a class="dropdown-item" href="#">Imprimir</a>
-    </div>
-    </div>
-</div> #}
 
 
-    <table  class="table display-search table-hover table-nomargin table-bordered dataTable dataTable-column_filter" data-column_filter_types="null,select">
-        <thead>
-            <tr><th>{{ titles.lastname }} </th><th>{{ titles.surname }}</th><th>{{titles.names }}</th><th class = ".d-md-none .d-lg-block">{{titles.genre }}</th><th >{{titles.zipcode }}</th></tr>
-        </thead>
-        <tbody>
-            {% for customer in customers %}
-                    <tr><td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.lastname|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.surname|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.name|capitalize }}</a></td>
-                    <td ><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.genre|capitalize }}</a></td>
-                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.zipcode }}</a></td>
-                    </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>{{ titles.lastname }}
-                </th>
-                <th>{{ titles.surname }}</th>
-                <th>{{titles.names }}</th>
-            </tr>
-        </tfoot>
-    </table>
-</div>
+
 
  {% endblock %}
 
