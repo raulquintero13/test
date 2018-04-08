@@ -10,7 +10,6 @@ class PersonCustomer extends Person {
     private $database;
     private $curp;
     private $password;
-    private $rol;
     private $person_id;
     private $status;
     private $created_at;
@@ -37,7 +36,6 @@ class PersonCustomer extends Person {
             'SELECT * FROM ' . $this->tbl_persons . ' 
             left join '.$this->tbl_customers. ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
             left JOIN genre ON genre.id = ' . $this->tbl_persons . '.genre_id
-            left JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id 
             where ' . $this->tbl_persons . '.id=?', array($id)  );
             
             
@@ -68,8 +66,7 @@ class PersonCustomer extends Person {
             'SELECT * FROM  ' . $this->tbl_persons . ' 
             INNER JOIN '. $this->tbl_customers . ' ON ' . $this->tbl_persons . '.id=' . $this->tbl_customers . '.' . $this->tbl_persons . '_id 
             LEFT JOIN genre ON genre.id = '. $this->tbl_persons . '.genre_id
-            LEFT JOIN rol ON ' . $this->tbl_customers . '.rol_id=rol.id'    
-            );
+            ');
 
         return $allCustomers;
     }

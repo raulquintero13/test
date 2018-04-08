@@ -246,11 +246,10 @@
                         <table class="table table-hover table-nomargin table-bordered dataTable dataTable-tools">
                             <thead>
                             <tr>
+                                <th class='hidden-480'>{{titles.curp }}</th>
                                 <th>{{ titles.lastname }} </th>
                                 <th>{{ titles.surname }}</th>
-                                <th class='hidden-350'>{{titles.names }}</th>
                                 <th class='hidden-1024'>{{titles.genre }}</th>
-                                <th class='hidden-480'>{{titles.status }}</th>
 
                                 
                             </tr>
@@ -259,11 +258,10 @@
                             
                                 {% for customer in customers %}
                                     <tr>
+                                    <td class='hidden-480'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.curp }}</a></td>
                                     <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.lastname|capitalize }}</a></td>
                                     <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.surname|capitalize }}</a></td>
                                     <td class='hidden-350'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.name|capitalize }}</a></td>
-                                    <td class='hidden-1024'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.genre|capitalize }}</a></td>
-                                    <td class='hidden-480'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.status }}</a></td>
                                     </tr>
                                 {% endfor %}
                                 

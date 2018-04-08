@@ -30,11 +30,10 @@ class Customers extends BasePageController
         
         $titles = [
             "title" => "Clientes",  
+            "curp"=>"curp",
             "names" => "Nombres",
             "lastname" => "Apellido P", 
             "surname"=>"Apellido M",
-            "genre"=>"Genero",
-            "status"=>"status",
         ];
         
         return self::render(self::$template, [

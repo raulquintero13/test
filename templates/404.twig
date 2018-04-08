@@ -4,12 +4,46 @@
     Welcome - HomePage
 {% endblock %}
 
-{% block head%}{% endblock %}
+{% block head%}
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<!-- Color CSS -->
+	<link rel="stylesheet" href="/assets/css/themes.css">
+
+
+	<!-- jQuery -->
+	<script src="/assets/js/jquery.min.js"></script>
+
+	<!-- Nice Scroll -->
+	<script src="/assets/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/assets/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+
 
 {% block content %}
 
-    <div class="main">
-        <h1>Error 404</h1>
-            <h3> File not found!</h3>
-    </div>
+
+<body class='error'>
+	<div class="wrapper">
+		<div class="code">
+			<span>404</span>
+			<i class="fa fa-warning"></i>
+		</div>
+		<div class="desc">Oops! Sorry, that page could'nt be found.</div>
+		
+		<div class="buttons">
+			<div class="pull-left">
+				<a href="/" class="btn btn--icon">
+					<i class="fa fa-arrow-left"></i>Back</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+    
 {% endblock %}
