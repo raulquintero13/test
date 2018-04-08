@@ -56,7 +56,7 @@
 
 {% endblock %}
 
-{% block title_page %} {{ fullName | capitalize }} {% endblock %}
+{% block title_page %} <span class="hidden-480">{{ fullName | capitalize }} </span>{% endblock %}
 
 {% block content %}
 
@@ -467,9 +467,11 @@
 		
 
 
-<div class="main">
+{# <div class="main">
 <h2>Cliente: {{ fullName|upper }}</h2>
-<br>
+<br> #}
+
+
 {# <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     {%for breadcrumb in breadcrumbs %}
@@ -513,14 +515,14 @@
     </div>
     </div>
 </div> #}
-
-<form action="{{ form_url }}" method="{{ method }}" >
-    <input type="hidden" name="id" value="{{ customer.id }}">
 {% if mode == "view" %}
   {% if not customer %}
     No se encontro Registro
   {% endif %}
 {% endif %}
+
+{# <form action="{{ form_url }}" method="{{ method }}" >
+    <input type="hidden" name="id" value="{{ customer.id }}">
   
  <div class="form-group">
     <label for="age">Curp</label>
@@ -565,7 +567,7 @@
   </div>
 <button  type="submit" class="btn btn-primary mb-2 hidden-print">Grabar</button>
 </form>
-
+ #}
     
     
 
