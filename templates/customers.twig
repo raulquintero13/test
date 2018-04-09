@@ -246,6 +246,7 @@
                         <table class="table table-hover table-nomargin table-bordered dataTable dataTable-tools">
                             <thead>
                             <tr>
+                                <th>{{ titles.id }} </th>
                                 <th class='hidden-480'>{{titles.curp }}</th>
                                 <th>{{ titles.lastname }} </th>
                                 <th>{{ titles.surname }}</th>
@@ -258,6 +259,7 @@
                             
                                 {% for customer in customers %}
                                     <tr>
+                                    <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.person_id }}</a></td>
                                     <td class='hidden-480'><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.curp }}</a></td>
                                     <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.lastname|capitalize }}</a></td>
                                     <td><a href="{{ path_for('customer', { 'id': customer.person_id}) }}">{{ customer.surname|capitalize }}</a></td>

@@ -69,7 +69,7 @@
 							<div class="box-title">
 								<h3>
 									<i class="fa fa-user"></i>
-									Customer profile
+									{{ fullName | capitalize }} [{{customer.person_id}}]
 								</h3>
 							</div>
 							<div class="box-content nopadding">
@@ -396,10 +396,32 @@
 									<div class="tab-pane" id="notifications">
 										<form action="#" class="form-horizontal">
 											<div class="form-group">
+												<label for="curp" class="control-label col-sm-2 right">Saldo:</label>
+												<div class="col-sm-10">
+													<input type="text" name="curp" class='form-control' value="{{customer.saldo|number_format(2, '.', ',')}} MXN">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="curp" class="control-label col-sm-2 right">Ultimo Abono:</label>
+												<div class="col-sm-10">
+													<input type="text" name="curp" class='form-control' value="{{customer.saldo_fecha|date("m/d/Y")}}">
+												</div>
+											</div>		
+											<div class="form-group">
+												<label for="curp" class="control-label col-sm-2 right">Sig. Abono:</label>
+												<div class="col-sm-10">
+													<input type="text" name="curp" class='form-control' value="{{customer.saldo_fecha_siguiente|date("m/d/Y")}}">
+												</div>
+											</div>		
+											<div class="form-group">
 												<label for="asdf" class="control-label col-sm-2">Email notifications</label>
 												<div class="col-sm-10">
 													<label class="checkbox">
-														<input type="checkbox" name="asdf">Send me security emails</label>
+														{% if customer.credito >=1 %}
+															{% set activo="checked" %}
+														{% endif %}
+
+														<input type="checkbox" name="credio" value="{{customer.credito}}" {{ activo }}>Credito</label>
 													<label class="checkbox">
 														<input type="checkbox" name="asdf">Send system emails</label>
 													<label class="checkbox">

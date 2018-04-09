@@ -12,6 +12,10 @@ class PersonCustomer extends Person {
     private $password;
     private $person_id;
     private $status;
+    private $credito;
+    private $saldo;
+    private $saldo_fecha;
+    private $saldo_fecha_siguiente;
     private $created_at;
     private $updated_at;
     

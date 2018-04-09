@@ -29,7 +29,8 @@ class Customers extends BasePageController
         // var_dump(($customers));die;
         
         $titles = [
-            "title" => "Clientes",  
+            "title" => "Clientes",
+            "id" => "id",
             "curp"=>"curp",
             "names" => "Nombres",
             "lastname" => "Apellido P", 
